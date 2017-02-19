@@ -1,0 +1,21 @@
+.remove-image {
+    display: none !important; 
+}
+.remove-image.visible {
+    display: inline-block !important;
+}
+.element-title {
+
+}
+.element-title label {
+	font-weight: bold;
+}
+#shiba2_homepage .image {    
+    max-width: 350px;
+    margin-top: 10px;
+    overflow: hidden;
+    display: block;
+}
+#shiba2_homepage .image img {
+	max-width: 350px;
+}
