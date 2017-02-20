@@ -37,7 +37,7 @@
         <div class='preloader'>
             <div class="loading"></div>
         </div>
-        <div id="wrap-content">            
+        <div id="wrap-content">
             <nav role="navigation" class="navbar navbar-fixed-top">
                 <div class="container">
                     <!-- Brand and toggle get grouped for better mobile display -->

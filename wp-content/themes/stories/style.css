@@ -173,7 +173,8 @@ ul.frmsearch input[type="text"] {
     -ms-box-sizing: border-box;
     box-sizing: border-box;
     font-weight: normal;
-    text-shadow: 0px 0px 0px #ccc;
+    text-shadow: 1px 1px 0px #D0CAC4;
+    color: #666;
 }
 #mmenu li.active > a {
     background: none;
@@ -255,28 +256,15 @@ ul.frmsearch input[type="text"] {
     padding-top: 3em;
     width: 180px;
 }
-#bar{
-    width: 0%;
-    max-width: 100%;
-    height: 6px;
-    background: rgba(255,255,255,0.5);
-}
-#progressBar{
-    width: 100%;
-    z-index: 2;
-    position: absolute;
-    bottom: 0;
-}
-
 .preloader {
     position: fixed;
     top: 0px;
     left: 0px;
     width: 100%;
     height: 100%;
-    background-color: #fff;    
+    background-color: #fff;
     text-align: center;
-    z-index: 9999999;
+    z-index: 99;
 }
 .preloader .loading { 
     width: 40px;
@@ -287,7 +275,7 @@ ul.frmsearch input[type="text"] {
     top: 0;
     bottom: 0;
     margin: auto;
-    background-color: #090059;
+    background-color: #9F896F;
     border-radius: 100%;
     -webkit-animation: scaleout 1s infinite ease-in-out;
     animation: scaleout 1s infinite ease-in-out;
@@ -320,11 +308,8 @@ ul.frmsearch input[type="text"] {
     margin: 0 0 30px 0;
 }
 #section-second {
-    min-height: 451px;
-    background: linear-gradient( 45deg, rgba(173, 187, 180, 0.56), rgba(167, 221, 239, 0.6)) , url(img/shutterstock_98181992.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
+    background: #C5B8A8;
+    padding: 4em 0;
 }
 .shinryo-box, .shinryo-box .post-image::before, .shinryo-box .post-image::after, .shinryo-box .post-image figure::after, .shinryo-box .post-image img, .shinryo-box .post-image p {
     -webkit-transition: .35s ease-in-out;
@@ -464,6 +449,38 @@ ul.frmsearch input[type="text"] {
 .headline a {
     text-decoration: none;
     color: #080059;
+}
+#section-second .headline {
+    color: #fff;
+}
+#section-second .btn-block {
+    background: #fff;
+    margin: 1em 0;
+    padding: 10px 0;
+    transition: background-color 0.5s;
+    -moz-transition: background-color 0.5s;
+    -webkit-transition: background-color 0.5s;
+    -o-transition: background-color 0.5s;
+   
+}
+#section-second .btn-block:hover {
+    background-color: #775D3D;
+    color: #fff;
+    transition: background-color 0.6s;
+    -moz-transition: background-color 0.6s;
+    -webkit-transition: background-color 0.6s;
+    -o-transition: background-color 0.6s;
+}
+#section-gal {
+    padding: 4em 0;
+}
+.gal-desc h3 {
+    font-family: "Times New Roman", "游明朝", "Yu Mincho", "游明朝体", "YuMincho", "ヒラギノ明朝 Pro W3", "Hiragino Mincho Pro", "HiraMinProN-W3", "HGS明朝E", "ＭＳ Ｐ明朝", "MS PMincho", serif;
+    font-size: 24px;
+    line-height: 1.6;
+    margin: 0 auto;
+    margin-bottom: 1em;
+    color: #9F886E;
 }
 .block {display: block;}
 time {
