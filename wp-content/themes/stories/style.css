@@ -20,6 +20,7 @@ body {
     color: #666;
     font-size: 16px;
     line-height: 2em;
+    font-weight: 300;
 }
 /* clear */
 .clear:before,
@@ -39,7 +40,7 @@ img {
     vertical-align:bottom;
 }
 a {
-    color: #241F5A;
+    color: #9F886E;
     text-decoration:none;
 }
 a:hover {
@@ -215,7 +216,7 @@ ul.frmsearch input[type="text"] {
 }
 .bx-wrapper .bx-viewport {
     border: 0;
-    height: 800px !important;
+    max-height: 800px !important;
 }
 
 #back2totop {
@@ -311,7 +312,10 @@ ul.frmsearch input[type="text"] {
         opacity: 0;
     }
 }
-#section-top {
+/*------------------------------------*\
+    TOP PAGE
+\*------------------------------------*/
+#section-desc {
     padding: 35px 0 0 0;
     margin: 0 0 30px 0;
 }
@@ -448,35 +452,14 @@ ul.frmsearch input[type="text"] {
     letter-spacing: 8px;
     opacity: 0;
 }
-
-#cat-list a {
-    text-decoration: none;
-}
-.icon-top {
-    margin-bottom: 1.8em;
-    color: #080059;
-}
-.headline.icon-top {
-    font-size: 2em;
-    margin: 0 0 1.4em;
-    font-weight: bold;    
-}
-.icon-top:before {
-    content: '';
-    background: url(img/icons/icon_title.png) top center no-repeat;
-    height: 18px;
-    margin: 60px auto 20px;
-    display: block;
-    background-size: contain;
-}
 .headline {
     line-height: 1.6em;
-    margin-bottom: 1.0em;
-    color: #080059;
+    margin-bottom: 0.8em;
+    color: #9F886E;
     text-align: center;
-    font-size: 1.4em;
-    font-weight: bold;
+    font-size: 2.2em;
     font-family: "Times New Roman" , "游明朝" , "Yu Mincho" , "游明朝体" , "YuMincho" , "ヒラギノ明朝 Pro W3" , "Hiragino Mincho Pro" , "HiraMinProN-W3" , "HGS明朝E" , "ＭＳ Ｐ明朝" , "MS PMincho" , serif;
+    font-weight: 500;
 }
 .headline a {
     text-decoration: none;
@@ -982,7 +965,7 @@ a.tel {
     }
     body.page #wrap-content h1:before, body.page #wrap-content h1:after {
         border: none;
-    }
+    }    
 }
 
 @media only screen and (max-width:768px) {
@@ -1025,7 +1008,17 @@ a.tel {
     #blog .title {
         margin-bottom: 12px;
         font-size: 18px;
-    }    
+    }
+    .content-slider {
+        width: 160px;
+        height: 160px;
+        font-size: 0.8em;
+        line-height: 1.6;
+    }
+    .slogan {
+        width: 110px;
+        padding-top: 2.4em;
+    }
 }
 
 /*------------------------------------*\
