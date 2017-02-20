@@ -96,11 +96,6 @@ function main_nav()
 	);
 }
 
-function add_menuclass($aclass) {
-   return preg_replace('/<a /', '<a class="drawer-menu-item"', $aclass);
-}
-//add_filter('wp_nav_menu','add_menuclass');
-
 function lotus_header_scripts()
 {
     if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
@@ -111,18 +106,12 @@ function lotus_header_scripts()
         wp_enqueue_script('bootstrap');
         
         wp_register_script('drawer', get_template_directory_uri() . '/js/drawer.min.js', array('jquery'), '3.2.1', true);
-        
-        wp_register_script('carousel', get_template_directory_uri() . '/js/owl.carousel.min.js', array('jquery'), '2.2.0', true);
-        wp_enqueue_script('carousel');
+                
+        wp_register_script('bxslider', get_template_directory_uri() . '/js/jquery.bxslider.min.js', array('jquery'), '4.1.2', true);
+        wp_enqueue_script('bxslider');
         
         wp_register_script('matchHeight', get_template_directory_uri() . '/js/jquery.matchHeight-min.js', array('jquery'), '0.7.0', true);
         wp_enqueue_script('matchHeight');
-
-        wp_register_script('headroom', get_template_directory_uri() . '/js/headroom.min.js', array('jquery'), '0.9.3', true);
-        //wp_enqueue_script('headroom');
-
-        wp_register_script('jsheadroom', get_template_directory_uri() . '/js/jQuery.headroom.js', array('jquery'), '', true);
-        //wp_enqueue_script('jsheadroom');
         
         wp_register_script('shiba_js', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1.0.0', true);
         wp_enqueue_script('shiba_js');
@@ -165,11 +154,9 @@ function lotus_styles()
     
     wp_register_style('drawer', get_template_directory_uri() . '/css/drawer.min.css', array(), '3.2.1', 'all');    
     
-    wp_register_style('carousel', get_template_directory_uri() . '/css/owl.carousel.min.css', array(), '2.2.0', 'all');
-    wp_enqueue_style('carousel');
-    
-    wp_register_style('carousel_theme', get_template_directory_uri() . '/css/owl.theme.default.min.css', array(), '2.2.0', 'all');
-//    wp_enqueue_style('carousel_theme');
+    wp_register_style('bxslider', get_template_directory_uri() . '/css/jquery.bxslider.css', array(), '4.1.2', 'all');
+    if(is_home())
+        wp_enqueue_style('bxslider');    
 
     wp_register_style('awesome', get_template_directory_uri() . '/css/font-awesome.min.css', array(), '4.7.0', 'all');
     wp_enqueue_style('awesome');
@@ -339,20 +326,6 @@ function create_post_type_blog()
         ) // Add Category and Post Tags support
     ));
 }
-
-function add_search_to_menu($items, $args) {
-      if ('header-menu' === $args->theme_location) {
-          $items .= '<li class="search-header-wrap">';
-          $items .= '<a class="search_header" href="javascript:void(0)"><i class="fa fa-search" aria-hidden="true"></i></a>';
-          $items .= '<ul class="frmsearch"><li>';
-          $items .= '<form class="search-header-form" action="' . home_url('/') . '">
-                <input name="s" class="search-input" size="20" type="text" value="' . get_search_query() . '" placeholder="検索" />
-              </form></li></ul>';
-          $items .= '</li>';
-      }
-      return $items;
-  }
-add_filter('wp_nav_menu_items','add_search_to_menu',10,2);
 
 function remove_api () {
     remove_action( 'wp_head', 'rest_output_link_wp_head', 10 );

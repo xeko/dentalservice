@@ -1,5 +1,51 @@
 <?php get_header(); ?>
 
+<div style="position: relative;">
+    <div id="main-slider">
+        <div class="item">
+            <img src="<?php echo get_bloginfo('template_url') ?>/img/slider/1.jpg" alt="" title="" />
+            <div class="carousel-caption hidden">
+                <h3 data-animation="animated bounceInLeft">
+                    This is the caption for slide 1
+                </h3>
+                <h3 data-animation="animated bounceInRight">
+                    This is the caption for slide 1
+                </h3>
+                <button class="btn btn-primary btn-lg" data-animation="animated zoomInUp">Button</button>
+            </div>
+        </div>
+        <div class="item">
+            <img src="<?php echo get_bloginfo('template_url') ?>/img/slider/2.jpg" alt="" title="" />
+            <div class="carousel-caption hidden">
+                <h3 class="icon-container" data-animation="animated bounceInDown">
+                    <span class="glyphicon glyphicon-heart"></span>
+                </h3>
+                <h3 data-animation="animated bounceInUp">
+                    This is the caption for slide 2
+                </h3>
+                <button class="btn btn-primary btn-lg" data-animation="animated zoomInRight">Button</button>
+            </div>
+        </div>
+        <div class="item">
+            <img src="<?php echo get_bloginfo('template_url') ?>/img/slider/3.jpg" alt="" title="" />
+            <div class="carousel-caption hidden">
+                <h3 class="icon-container" data-animation="animated zoomIn">
+                    <span class="glyphicon glyphicon-hourglass"></span>
+                </h3>
+                <h3 data-animation="animated flipInX">
+                    This is the caption for slide 3
+                </h3>
+                <button class="btn btn-primary btn-lg" data-animation="animated lightSpeedOut">Button</button>
+            </div>
+        </div>        
+    </div><!--End #main-slider-->
+    <div class="content-slider">
+        <img src="<?php echo get_bloginfo('template_url') ?>/img/logo.png" alt="スローガン" class="slogan" />
+        <p class="clearfix"><?php bloginfo('description')?><br />
+        <i class="fa fa-angle-double-down" aria-hidden="true"></i></p>
+    </div><!--End #content-slider-->
+</div>
+
 <div id="section-top" class="clearfix">
     <div class="container">
         <div class="row">
@@ -60,22 +106,23 @@
         <div class="row">        
             <h2 class="icon-top headline">ニュース</h2>
             <div class="col-md-7 col-md-push-5">
-            <?php
+                <?php
                 $args = array(
-                'post_type' => 'post',
-                'post_status' => 'publish',
-                'posts_per_page'  => 6,
-                //'cat'   => 3
+                    'post_type' => 'post',
+                    'post_status' => 'publish',
+                    'posts_per_page' => 6,
+                        //'cat'   => 3
                 );
                 $query_news = new WP_Query($args);
-                if ($query_news->have_posts()) :?>
+                if ($query_news->have_posts()) :
+                    ?>
                     <ul class="list-unstyled" id="list-news">
-                    <?php while($query_news->have_posts()): $query_news->the_post();?>
-                        <li><time class="block"><i class="fa fa-clock-o" aria-hidden="true"></i> <?php the_time('d-m-Y')?></time>
-                            <a href="<?php echo the_permalink()?>"><?php the_title();?></a></li>
-                    <?php endwhile;?>
+    <?php while ($query_news->have_posts()): $query_news->the_post(); ?>
+                            <li><time class="block"><i class="fa fa-clock-o" aria-hidden="true"></i> <?php the_time('d-m-Y') ?></time>
+                                <a href="<?php echo the_permalink() ?>"><?php the_title(); ?></a></li>
+                    <?php endwhile; ?>
                     </ul><!--End #list-news-->
-                <?php endif;?>                    
+<?php endif; ?>                    
             </div>
             <div class="col-md-5 col-md-pull-7">
                 <div class="fb-page" data-href="https://www.facebook.com/omorimachidental/?fref=ts" data-tabs="timeline" data-height="500" data-width="500" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/omorimachidental/?fref=ts" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/omorimachidental/?fref=ts">大森町駅前歯科</a></blockquote></div>                
@@ -154,51 +201,52 @@
         <div class="row">
             <h2 class="headline icon-top">診療のご案内</h2>
             <?php
-                $args = array(
+            $args = array(
                 'post_type' => 'page',
                 'post_status' => 'publish',
-                'hierarchical'  => 1,
-                'meta_key'  => 'is_homepage',
-                'meta_value'  => 1,
-                'posts_per_page'  => 6
-                );
-              $query_toppage = new WP_Query($args);
-              if ($query_toppage->have_posts()) :?>
-              <ul id="cat-list" class="list-unstyled">
-                <?php while ($query_toppage->have_posts()): $query_toppage->the_post();?>
-                    <?php
-                    $title_via_img = get_post_meta( get_the_ID(), 'title_via_img', true );                    
-                    ?>
-                    <li class="col-md-4">
-                        <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-                            <div class="shinryo-box items">
-                                <h3>
-                                <?php if(empty($title_via_img)):?>
-                                <?php the_title()?>
-                                <?php else:?>
-                                    <img src="<?php echo $title_via_img?>" title="<?php the_title()?>" alt="<?php the_title()?>" />
-                                <?php endif;?>
-                                </h3>
-                                <div class="post-image">
-                                    <figure>
-                                        <?php the_post_thumbnail( 'large', array('class' => 'img-responsive') );?>
-                                    </figure>
-                                    <p>Read More</p>
-                                </div>
-                            </div><!--End .shinryo-box-->
-                        </a>
-                    </li>
-                    <?php endwhile;?>
+                'hierarchical' => 1,
+                'meta_key' => 'is_homepage',
+                'meta_value' => 1,
+                'posts_per_page' => 6
+            );
+            $query_toppage = new WP_Query($args);
+            if ($query_toppage->have_posts()) :
+                ?>
+                <ul id="cat-list" class="list-unstyled">
+                    <?php while ($query_toppage->have_posts()): $query_toppage->the_post(); ?>
+                        <?php
+                        $title_via_img = get_post_meta(get_the_ID(), 'title_via_img', true);
+                        ?>
+                        <li class="col-md-4">
+                            <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+                                <div class="shinryo-box items">
+                                    <h3>
+                                        <?php if (empty($title_via_img)): ?>
+                                            <?php the_title() ?>
+                                        <?php else: ?>
+                                            <img src="<?php echo $title_via_img ?>" title="<?php the_title() ?>" alt="<?php the_title() ?>" />
+        <?php endif; ?>
+                                    </h3>
+                                    <div class="post-image">
+                                        <figure>
+        <?php the_post_thumbnail('large', array('class' => 'img-responsive')); ?>
+                                        </figure>
+                                        <p>Read More</p>
+                                    </div>
+                                </div><!--End .shinryo-box-->
+                            </a>
+                        </li>
+                <?php endwhile; ?>
                 </ul>
-            <?php endif;?>
-            <?php wp_reset_postdata(); ?>                            
+<?php endif; ?>
+<?php wp_reset_postdata(); ?>                            
             </ul><!--End #cat-list-->
         </div>
     </div>
 </div><!--End #section-third-->
 <div id="section-eight">
     <div class="container">
-        
+
     </div>
 </div><!--End #section-eight-->
 
