@@ -56,10 +56,10 @@
 <div id="section-gal">
     <div class="container">
         <div class="row">
-            <div class="col-md-6 col-md-push-6">
+            <div class="col-md-6 col-md-push-6 pd-0">
                 <img src="<?php echo get_bloginfo('template_url') ?>/img/column-layout03.jpg" class="img-responsive" />
             </div>
-            <div class="col-md-6 col-md-pull-6">
+            <div class="col-md-6 col-md-pull-6 pd-0">
                 <div class="gal-desc">
                     <h3>大切なひとに自分の言葉で、ていねいに感謝を伝える日。</h3>
                     <p>新しい人生をスタートする二人の誓い、繋がりにふさわしい優雅で上質な舞台を「STORY」ではご用意しております。最高のシーンで、両家のご両親、ご友人への感謝の気持ちを、共に新たな人生を歩む大切な人とお伝えし、長く、そして変わらない愛を二人で紡いでください。
@@ -67,10 +67,10 @@
                 </div><!--End .gal-desc-->
             </div>
             <div class="clearfix"></div>
-            <div class="col-md-6">
+            <div class="col-md-6 pd-0">
                 <img src="<?php echo get_bloginfo('template_url') ?>/img/top_rollover_02.jpg" class="img-responsive" />
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 pd-0">
                 <div class="gal-desc">
                     <h3>美しい海の見える挙式チャペルであなたの華やかなセレモニーを演出</h3>
                     <p>パリやミラノ、ニューヨークからのインポートをはじめ国内の人気ブランドやオリジナルまでウェディングドレスやカラードレスを豊富にご用意致しております。私たちは、花嫁様の幸せはもちろん、結婚式に携わったすべての人が感嘆の声を上げる、ドレスを演出します。
@@ -95,32 +95,58 @@
     <div class="container">
         <div class="row">        
             <h2 class="headline">ニュース</h2>
-            <ul class=""
-            <div class="col-md-7 col-md-push-5">
-                <?php
-                $args = array(
-                    'post_type' => 'post',
-                    'post_status' => 'publish',
-                    'posts_per_page' => 6,
-                        //'cat'   => 3
-                );
-                $query_news = new WP_Query($args);
-                if ($query_news->have_posts()) :
-                    ?>
-                    <ul class="list-unstyled" id="list-news">
-                        <?php while ($query_news->have_posts()): $query_news->the_post(); ?>
-                            <li><time class="block"><i class="fa fa-clock-o" aria-hidden="true"></i> <?php the_time('d-m-Y') ?></time>
-                                <a href="<?php echo the_permalink() ?>"><?php the_title(); ?></a></li>
-                        <?php endwhile; ?>
-                    </ul><!--End #list-news-->
-                <?php endif; ?>                    
-            </div>
-            <div class="col-md-5 col-md-pull-7">
-                <div class="fb-page" data-href="https://www.facebook.com/omorimachidental/?fref=ts" data-tabs="timeline" data-height="500" data-width="500" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/omorimachidental/?fref=ts" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/omorimachidental/?fref=ts">大森町駅前歯科</a></blockquote></div>                
-            </div>            
+            <ul class="news-list">
+                <li class="col-xs-6">
+                    <img src="<?php echo get_bloginfo('template_url') ?>/img/news-01.jpg" class="pull-left" />
+                    <div class="post-desc">
+                        <time class="block"><i class="fa fa-clock-o" aria-hidden="true"></i> 04-01-2017</time>
+                        <a href="#">画像をはめ込むだけで簡単に思い出のアルバムが作れる「ギャラリーページ」を追加しま</a>
+                        <p>通常の投稿（ブログ記事）とSTORYの独自機能である「お知らせ」カスタム投稿タイプの他にも、WordPressには「固定ページ」という静的なページを作成する機能があります。
+
+                        </p>
+                    </div><!--End .post-desc-->
+                </li>
+                <li class="col-xs-6">
+                    <img src="<?php echo get_bloginfo('template_url') ?>/img/news-02.jpg" class="pull-left" />
+                    <div class="post-desc">
+                        <time class="block"><i class="fa fa-clock-o" aria-hidden="true"></i> 04-01-2017</time>
+                        <a href="#">画像をはめ込むだけで簡単に思い出のアルバムが作れる「ギャラリーページ」を追加しま</a>
+                        <p>通常の投稿（ブログ記事）とSTORYの独自機能である「お知らせ」カスタム投稿タイプの他にも、WordPressには「固定ページ」という静的なページを作成する機能があります。
+
+                        </p>
+                    </div><!--End .post-desc-->
+                </li>
+                <li class="col-xs-6">
+                    <img src="<?php echo get_bloginfo('template_url') ?>/img/news-03.jpg" class="pull-left" />
+                    <div class="post-desc">
+                        <time class="block"><i class="fa fa-clock-o" aria-hidden="true"></i> 04-01-2017</time>
+                        <a href="#">画像をはめ込むだけで簡単に思い出のアルバムが作れる「ギャラリーページ」を追加しま</a>
+                        <p>通常の投稿（ブログ記事）とSTORYの独自機能である「お知らせ」カスタム投稿タイプの他にも、WordPressには「固定ページ」という静的なページを作成する機能があります。
+
+                        </p>
+                    </div><!--End .post-desc-->
+                </li>
+                <li class="col-xs-6">
+                    <img src="<?php echo get_bloginfo('template_url') ?>/img/news-04.jpg" class="pull-left" />
+                    <div class="post-desc">
+                        <time class="block"><i class="fa fa-clock-o" aria-hidden="true"></i> 04-01-2017</time>
+                        <a href="#">画像をはめ込むだけで簡単に思い出のアルバムが作れる「ギャラリーページ」を追加しま</a>
+                        <p>通常の投稿（ブログ記事）とSTORYの独自機能である「お知らせ」カスタム投稿タイプの他にも、WordPressには「固定ページ」という静的なページを作成する機能があります。
+
+                        </p>
+                    </div><!--End .post-desc-->
+                </li>
+            </ul>                       
         </div>
     </div>
-</div><!--End #section-five-->
+</div><!--End #section-news-->
+<div id="section-blog" class="post">    
+    <div class="container">
+        <div class="row">
+            
+        </div>
+    </div>
+</div><!--End #section-blog-->
 <div id="section-seven">    
     <div class="container">
         <div class="row">

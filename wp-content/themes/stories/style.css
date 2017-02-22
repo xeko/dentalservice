@@ -166,15 +166,15 @@ ul.frmsearch input[type="text"] {
     font-size: 16px;
     text-decoration: none;
     display: block;
-    padding: 18px 30px 0;
+    padding: 0 30px 0;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -o-box-sizing: border-box;
     -ms-box-sizing: border-box;
     box-sizing: border-box;
     font-weight: normal;
-    text-shadow: 1px 1px 0px #D0CAC4;
-    color: #666;
+    color: #000;
+    line-height: 60px;
 }
 #mmenu li.active > a {
     background: none;
@@ -184,7 +184,7 @@ ul.frmsearch input[type="text"] {
 }
 .dropdown-menu {
     border: none;
-    background: rgba(255, 255, 255, 255);
+    background: rgba(245, 245, 245, 0.88);
 }
 .dropdown-menu li a{
     font-size: 16px;
@@ -234,8 +234,11 @@ ul.frmsearch input[type="text"] {
 }
 /* nav */
 .nav {
-    display: inline-block;
+    /*display: inline-block;*/
     float: none;
+    display: table;
+    table-layout: fixed;
+    margin: 0 auto;
 }
 .navbar-collapse.collapse {text-align: center;}
 #navigation button {border: none;}
@@ -310,6 +313,9 @@ ul.frmsearch input[type="text"] {
 #section-second {
     background: #C5B8A8;
     padding: 4em 0;
+}
+.pd-0 {
+    padding: 0!important;
 }
 .shinryo-box, .shinryo-box .post-image::before, .shinryo-box .post-image::after, .shinryo-box .post-image figure::after, .shinryo-box .post-image img, .shinryo-box .post-image p {
     -webkit-transition: .35s ease-in-out;
@@ -815,6 +821,13 @@ body.fixed header {
     margin-top: 5em;
 }
 /*------------------------------------*\
+    NEWS
+\*------------------------------------*/
+.news-list {
+    overflow: hidden;
+}
+
+/*------------------------------------*\
     SEARCH FORM
 \*------------------------------------*/
 #searchform {
@@ -876,7 +889,7 @@ body.fixed header {
 }
 .view-count {
     font-size: 11px;
-    columns: #000;
+    color: #000;
 }
 #wrap-body h3.widget-title {
     border-bottom: 2px solid #080059;
