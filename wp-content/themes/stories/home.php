@@ -96,44 +96,32 @@
         <div class="row">        
             <h2 class="headline">ニュース</h2>
             <ul class="news-list">
-                <li class="col-xs-6">
-                    <img src="<?php echo get_bloginfo('template_url') ?>/img/news-01.jpg" class="pull-left" />
+                <li class="col-md-6">
+                    <a href="#"><img src="<?php echo get_bloginfo('template_url') ?>/img/news-01.jpg" class="pull-left" width="200" /></a>
                     <div class="post-desc">
-                        <time class="block"><i class="fa fa-clock-o" aria-hidden="true"></i> 04-01-2017</time>
                         <a href="#">画像をはめ込むだけで簡単に思い出のアルバムが作れる「ギャラリーページ」を追加しま</a>
-                        <p>通常の投稿（ブログ記事）とSTORYの独自機能である「お知らせ」カスタム投稿タイプの他にも、WordPressには「固定ページ」という静的なページを作成する機能があります。
-
-                        </p>
+                        <p>WordPressテーマTCDは常に進化を続けます。不具合などはもちろん、よりユーザビリティを高めるための機能追加も随時行っております</p>
                     </div><!--End .post-desc-->
                 </li>
-                <li class="col-xs-6">
-                    <img src="<?php echo get_bloginfo('template_url') ?>/img/news-02.jpg" class="pull-left" />
+                <li class="col-md-6">
+                    <a href="#"><img src="<?php echo get_bloginfo('template_url') ?>/img/news-02.jpg" class="pull-left" width="200" /></a>
                     <div class="post-desc">
-                        <time class="block"><i class="fa fa-clock-o" aria-hidden="true"></i> 04-01-2017</time>
                         <a href="#">画像をはめ込むだけで簡単に思い出のアルバムが作れる「ギャラリーページ」を追加しま</a>
-                        <p>通常の投稿（ブログ記事）とSTORYの独自機能である「お知らせ」カスタム投稿タイプの他にも、WordPressには「固定ページ」という静的なページを作成する機能があります。
-
-                        </p>
+                        <p>WordPressテーマTCDは常に進化を続けます。不具合などはもちろん、よりユーザビリティを高めるための機能追加も随時行っております</p>
                     </div><!--End .post-desc-->
                 </li>
-                <li class="col-xs-6">
-                    <img src="<?php echo get_bloginfo('template_url') ?>/img/news-03.jpg" class="pull-left" />
+                <li class="col-md-6">
+                    <a href="#"><img src="<?php echo get_bloginfo('template_url') ?>/img/news-03.jpg" class="pull-left" width="200" /></a>
                     <div class="post-desc">
-                        <time class="block"><i class="fa fa-clock-o" aria-hidden="true"></i> 04-01-2017</time>
                         <a href="#">画像をはめ込むだけで簡単に思い出のアルバムが作れる「ギャラリーページ」を追加しま</a>
-                        <p>通常の投稿（ブログ記事）とSTORYの独自機能である「お知らせ」カスタム投稿タイプの他にも、WordPressには「固定ページ」という静的なページを作成する機能があります。
-
-                        </p>
+                        <p>WordPressテーマTCDは常に進化を続けます。不具合などはもちろん、よりユーザビリティを高めるための機能追加も随時行っております</p>
                     </div><!--End .post-desc-->
                 </li>
-                <li class="col-xs-6">
-                    <img src="<?php echo get_bloginfo('template_url') ?>/img/news-04.jpg" class="pull-left" />
+                <li class="col-md-6">
+                    <a href="#"><img src="<?php echo get_bloginfo('template_url') ?>/img/news-04.jpg" class="pull-left" width="200" /></a>
                     <div class="post-desc">
-                        <time class="block"><i class="fa fa-clock-o" aria-hidden="true"></i> 04-01-2017</time>
                         <a href="#">画像をはめ込むだけで簡単に思い出のアルバムが作れる「ギャラリーページ」を追加しま</a>
-                        <p>通常の投稿（ブログ記事）とSTORYの独自機能である「お知らせ」カスタム投稿タイプの他にも、WordPressには「固定ページ」という静的なページを作成する機能があります。
-
-                        </p>
+                        <p>WordPressテーマTCDは常に進化を続けます。不具合などはもちろん、よりユーザビリティを高めるための機能追加も随時行っております</p>
                     </div><!--End .post-desc-->
                 </li>
             </ul>                       
@@ -143,17 +131,83 @@
 <div id="section-blog" class="post">    
     <div class="container">
         <div class="row">
-            
+            <h2 class="headline">ブログ</h2>            
+            <ul class="list-unstyled list-inline filter-type text-center" id="blog-type">
+                <li class="filtr filtr-active" data-filter="all">All</li>
+                <li class="filtr" data-filter="1">Design</li>
+                <li class="filtr" data-filter="2">Feature</li>
+                <li class="filtr" data-filter="3">Theme</li>
+                <li class="filtr" data-filter="4">Theme</li>
+                <li class="filtr" data-filter="5">Theme</li>
+            </ul>
+            <div class="filtr-container clearfix">
+                <div class="col-xs-6 col-sm-4 col-md-3 filtr-item" data-category="1, 5" data-sort="Busy streets">
+                    <img class="img-responsive" src="<?php echo get_bloginfo('template_url') ?>/img/blog/16.jpg" alt="sample image">
+                    <div class="item-position">1</div>
+                    <span class="item-desc">Busy Streets</span>
+                </div>
+                <div class="col-xs-6 col-sm-4 col-md-3 filtr-item" data-category="2, 5" data-sort="Busy streets">
+                    <img class="img-responsive" src="<?php echo get_bloginfo('template_url') ?>/img/blog/17.jpg" alt="sample image">
+                    <div class="item-position">1</div>
+                    <span class="item-desc">Luminous night</span>
+                </div>
+                <div class="col-xs-6 col-sm-4 col-md-3 filtr-item" data-category="1, 4" data-sort="Busy streets">
+                    <img class="img-responsive" src="<?php echo get_bloginfo('template_url') ?>/img/blog/18.jpg" alt="sample image">
+                    <div class="item-position">1</div>
+                    <span class="item-desc">City wonders</span>
+                </div>
+                <div class="col-xs-6 col-sm-4 col-md-3 filtr-item" data-category="3" data-sort="Busy streets">
+                    <img class="img-responsive" src="<?php echo get_bloginfo('template_url') ?>/img/blog/19.jpg" alt="sample image">
+                    <div class="item-position">1</div>
+                    <span class="item-desc">In production</span>
+                </div>
+                <div class="col-xs-6 col-sm-4 col-md-3 filtr-item" data-category="3, 4" data-sort="Busy streets">
+                    <img class="img-responsive" src="<?php echo get_bloginfo('template_url') ?>/img/blog/20.jpg" alt="sample image">
+                    <div class="item-position">1</div>
+                    <span class="item-desc">Industrial site</span>
+                </div>
+                <div class="col-xs-6 col-sm-4 col-md-3 filtr-item" data-category="2, 4" data-sort="Busy streets">
+                    <img class="img-responsive" src="<?php echo get_bloginfo('template_url') ?>/img/blog/21.jpg" alt="sample image">
+                    <div class="item-position">1</div>
+                    <span class="item-desc">Peaceful lake</span>
+                </div>
+                <div class="col-xs-6 col-sm-4 col-md-3 filtr-item" data-category="1, 5" data-sort="Busy streets">
+                    <img class="img-responsive" src="<?php echo get_bloginfo('template_url') ?>/img/blog/21.jpg" alt="sample image">
+                    <div class="item-position">1</div>
+                    <span class="item-desc">City lights</span>
+                </div>
+                <div class="col-xs-6 col-sm-4 col-md-3 filtr-item" data-category="2, 4" data-sort="Busy streets">
+                    <img class="img-responsive" src="<?php echo get_bloginfo('template_url') ?>/img/blog/22.jpg" alt="sample image">
+                    <div class="item-position">1</div>
+                    <span class="item-desc">Dreamhouse</span>
+                </div>
+            </div>
+            <div class="center-block viewmore">
+                <a href="#">ブログ一覧 <i class="fa fa-angle-double-down" aria-hidden="true"></i></a>
+            </div>
         </div>
     </div>
 </div><!--End #section-blog-->
+<div id="section-gal" class="post">        
+    <h2 class="headline">Gallery</h2>
+    <ul id="list-gal">
+        <li><img src="<?php echo get_bloginfo('template_url') ?>/img/gallery/03-3.jpg" /></li>
+        <li><img src="<?php echo get_bloginfo('template_url') ?>/img/gallery/04-2.jpg" /></li>
+        <li><img src="<?php echo get_bloginfo('template_url') ?>/img/gallery/08-2.jpg" /></li>
+        <li><img src="<?php echo get_bloginfo('template_url') ?>/img/gallery/16.jpg" /></li>
+        <li><img src="<?php echo get_bloginfo('template_url') ?>/img/gallery/17.jpg" /></li>
+        <li><img src="<?php echo get_bloginfo('template_url') ?>/img/gallery/18.jpg" /></li>
+        <li><img src="<?php echo get_bloginfo('template_url') ?>/img/gallery/19.jpg" /></li>
+        <li><img src="<?php echo get_bloginfo('template_url') ?>/img/gallery/20.jpg" /></li>
+        <li><img src="<?php echo get_bloginfo('template_url') ?>/img/gallery/21.jpg" /></li>
+        <li><img src="<?php echo get_bloginfo('template_url') ?>/img/gallery/22.jpg" /></li>
+    </ul><!--End list-gal-->     
+</div><!--End #section-gal-->            
 <div id="section-seven">    
     <div class="container">
-        <div class="row">
-            <h2 class="icon-top headline">ブログ</h2>
+        <div class="row">            
             <ul class="list-unstyled hidden" id="blog">
-                <li class="clearfix">
-                    <a href="#" class="zoom-effect pull-left"><img src="<?php echo get_bloginfo('template_url') ?>/img/Fotolia_56159139_XS.jpg" /></a>
+                <li class="clearfix">                    
                     <h3 class="title"><a href="#">歯のホワイトニングを行うことで得られる4つの効果</a></h3>
                     <p class="blog-content">皆さんは人前で思いっきり笑えますか？
                         歯が汚れているのを気にしたことはありませんか？
@@ -166,7 +220,7 @@
                     </ul>
                 </li>
                 <li class="clearfix">
-                    <a href="#" class="zoom-effect pull-left"><img src="<?php echo get_bloginfo('template_url') ?>/img/Fotolia_109030654_XS.jpg" /></a>
+                    <a href="#" class="zoom-effect pull-left"><img src="<?php echo get_bloginfo('template_url') ?>/img/top_rollover_02.jpg" /></a>
                     <h3 class="title"><a href="#">歯科医院における自費診療と保険診療の違い</a></h3>
                     <p class="blog-content">歯医者だけに限らず、内科や耳鼻科や皮膚科などに行くと、まず最初に「保険証のご提示をおねがいします」といわれますよね。
                         しかし、保険の効かない自費診療もあるということはご存知でしょうか？
@@ -177,7 +231,7 @@
                     </ul>
                 </li>
                 <li class="clearfix">
-                    <a href="#" class="zoom-effect pull-left"><img src="<?php echo get_bloginfo('template_url') ?>/img/Fotolia_110287853_XS.jpg" /></a>
+                    <a href="#" class="zoom-effect pull-left"><img src="<?php echo get_bloginfo('template_url') ?>/img/top_rollover_02.jpg" /></a>
                     <h3 class="title"><a href="#">ドライマウスの対策</a></h3>
                     <p class="blog-content">唾液を分泌させるために、食事の際はよく噛むようにしましょう。
                         普段柔らかい食べ物ばかり食べている人は、なるべく歯ごたえのあるものを食べるように心がけてみましょう。
@@ -191,28 +245,6 @@
         </div>
     </div>
 </div><!--End #section-seven-->
-<div id="section-six">
-    <h2 class="icon-top headline">挨拶</h2>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-4 col-sm-push-8">
-                <img src="<?php echo get_bloginfo('template_url') ?>/img/shutterstock_81834304.jpg" class="center-block" />
-            </div>
-            <div class="col-sm-8 col-sm-pull-4">
-                <p>
-                    この度は当院のホームページにお越しいただき、ありがとうございます。<br />
-
-                    最近では、このホームページと言われるものも世の中に無数にある時代となり、歯科医院のホームページと言えば、どんな業種よりも多く感じるの私だけでしょうか。<br />
-
-                    そんな、数多くある歯科医院のホームページを見て、今後かかりつけになるかもしれない歯科医院を探しているということを来院いただいた患者様からお聞きしたことがございました。<br />
-
-                    そこで、『この歯医者にいってみよう、この歯医者だったら良くしてくれるだろう』というけ眼手になるところは、ホームページでどこを見て決めているんですか？と尋ねてみたところ、『結局は先生じゃないんですか』と言われました。
-
-                </p>
-            </div>            
-        </div>
-    </div>
-</div><!--End #section-six-->
 <div id="section-third" class="text-center">
     <div class="container">
         <div class="row">

@@ -39,7 +39,7 @@ jQuery(document).ready(function ($) {
 
     $(document).click(function (e) {
         target = e.target;
-        if (($(".vce-zoomed").length == true) && !$(target).is('.search-input')) {
+        if (($(".vce-zoomed").length === true) && !$(target).is('.search-input')) {
             $('#navigation').find('li').removeClass("vce-zoomed");
         }
     });
@@ -50,4 +50,24 @@ jQuery(document).ready(function ($) {
         e.stopPropagation();
     });
 
+    var filteriblog = $('.filtr-container').filterizr();
+    //Filtering section nav
+    $('#blog-type li').click(function () {
+        $('.filter-type .filtr').removeClass('filtr-active');
+        $(this).addClass('filtr-active');
+    });
+    
+    $('#list-gal').bxSlider({
+        slideWidth: 400,
+        minSlides: 4,
+        maxSlides: 4,
+        slideMargin: 0,
+        auto: true,
+        speed: 1000,
+        controls: true,
+        pause: 10000,
+        captions: false,
+        pager: false
+      });
+    
 });
