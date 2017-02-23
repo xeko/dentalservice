@@ -56,7 +56,7 @@ jQuery(document).ready(function ($) {
         $('.filter-type .filtr').removeClass('filtr-active');
         $(this).addClass('filtr-active');
     });
-    
+
     $('#list-gal').bxSlider({
         slideWidth: 400,
         minSlides: 4,
@@ -68,6 +68,9 @@ jQuery(document).ready(function ($) {
         pause: 10000,
         captions: false,
         pager: false
-      });
+    });
     
+    new WOW().init();
+
+
 });

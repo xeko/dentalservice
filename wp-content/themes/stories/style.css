@@ -317,69 +317,9 @@ ul.frmsearch input[type="text"] {
 .pd-0 {
     padding: 0!important;
 }
-.shinryo-box, .shinryo-box .post-image::before, .shinryo-box .post-image::after, .shinryo-box .post-image figure::after, .shinryo-box .post-image img, .shinryo-box .post-image p {
+.filtr-item, .post-image::before, .post-image::after, .post-image figure::after, .post-image img, .post-image p, .item-position {
     -webkit-transition: .35s ease-in-out;
-    transition: .35s ease-in-out;
-}
-.shinryo-box {
-    padding: 20px 10px;
-    background: #fff;
-    margin-bottom: 20px;
-    box-shadow: 1px -2px 18px 2px #ced1d3;
-}
-.shinryo-box > h3 {
-    color: #0A005A;
-    margin-top: 0.4em;
-    margin-bottom: 1em;
-    border-bottom: 1px dashed #E2E3E4;
-    padding-bottom: 10px;
-    -moz-transition: 0.5s;
-    -ms-transition: 0.5s;
-    -o-transition: 0.5s;
-    -webkit-transition:0.5s;
-    transition: 0.5s;
-    position:relative;    
-}
-.shinryo-box:hover h3 {
-    border-bottom: 1px dashed #fff;
-}
-.shinryo-box > h3::before {
-  width: 100%;
-  height:100%;
-  z-index: 3;
-  content:'';
-  position: absolute;
-  top:0;
-  left:0;
-  box-sizing: border-box;
-  -webkit-transform: scale(0);
-  transition: 0.5s;
-}
-
-.shinryo-box > h3::before {
-  border-bottom: 1px dashed #221B58;
-  border-left: 0;
-  -webkit-transform-origin: 0% 100%;
-}
-.shinryo-box:hover > h3::before {
-  -webkit-transform: scale(1);
-}
-
-.shinryo-box p {
-    padding-top: 12px;
-    color: #222;
-}
-.zoom-effect {
-    overflow: hidden;
-    transition:all 200ms ease-in;
-}
-.zoom-effect img {
-    -webkit-transition: 0.4s ease;
-    transition: 0.4s ease;
-}
-#blog li:hover .zoom-effect img {
-    -webkit-transform: scale(1.0);
-    transform: scale(1.1);
+    transition: .35s ease-in-out;    
 }
 .post-image {
     position: relative;
@@ -425,7 +365,7 @@ ul.frmsearch input[type="text"] {
     -webkit-transform: scale(0, 1);
     transform: scale(0, 1);
 }
-.shinryo-box .post-image figure::after {
+.post-image figure::after {
     position: absolute;
     top: 0;
     left: 0;
@@ -436,19 +376,28 @@ ul.frmsearch input[type="text"] {
     background: linear-gradient(45deg, rgba(52,143,80,.6), rgba(86,180,211,.6));
     opacity: 0;
 }
-.shinryo-box:hover .post-image:before {
+.item-desc {
+    margin-bottom: 1.2em;
+    color: #AF926E;
+    font-weight: 400;    
+}
+.filtr-item:hover .post-image:before {
     -webkit-transform: scale(1, 1);
     transform: scale(1, 1);
     opacity: 1;
 }
-.shinryo-box:hover .post-image:after {
+.filtr-item:hover .post-image:after {
     -webkit-transform: scale(1, 1);
     transform: scale(1, 1);
     opacity: 1;
 }
-.shinryo-box:hover .post-image p, .shinryo-box:hover .post-image figure::after { opacity: 1}
-.shinryo-box:hover .post-image p { letter-spacing: 2px;}
-
+.filtr-item:hover .post-image p, .filtr-item:hover .post-image figure::after { opacity: 1}
+.filtr-item:hover .post-image p { letter-spacing: 2px;}
+.filtr-item:hover .item-position { 
+    opacity: 0;
+    -webkit-transition: .35s ease-in-out;
+    transition: .35s ease-in-out;
+}
 .post-image p {
     position: absolute;
     top: 50%;
@@ -506,13 +455,17 @@ ul.frmsearch input[type="text"] {
 #section-gal {
     padding: 4em 0;
 }
+.gal-desc {
+    padding: 1em 2em;
+}
 .gal-desc h3 {
     font-family: "Times New Roman", "游明朝", "Yu Mincho", "游明朝体", "YuMincho", "ヒラギノ明朝 Pro W3", "Hiragino Mincho Pro", "HiraMinProN-W3", "HGS明朝E", "ＭＳ Ｐ明朝", "MS PMincho", serif;
-    font-size: 24px;
+    font-size: 22px;
     line-height: 1.6;
-    margin: 0 auto;
+    margin: 1.6em auto;
     margin-bottom: 1em;
     color: #9F886E;
+    text-align: center;
 }
 .block {display: block;}
 time {
@@ -550,6 +503,21 @@ time {
 #blog li {
     margin-bottom: 22px;
 }
+.item-position {
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 5px;
+    color: #fff;
+    display: block;
+    position: absolute;
+    text-align: center;
+    text-transform: uppercase;
+    left: 1.5rem;
+    top: 0.4rem;
+    padding: 0.2rem 0.4rem;
+    right: auto;
+    bottom: auto;
+    font-size: 10px;
+}
 .title a {
     text-decoration: none;
 }
@@ -562,6 +530,11 @@ time {
 }
 #time-tbl {
 	color: #080059;
+}
+.filtr-item img {
+    border-radius: 5px;
+    -webkit-filter: grayscale(40%); 
+    filter: grayscale(40%);
 }
 #top-bar {
     border-bottom: 1px solid rgba(255,255,255,0.1);
@@ -678,7 +651,12 @@ body.fixed header {
 }
 
 .copyright {
-    padding: 2em 0;
+    padding: 1em 0;
+    background: #9F886E;
+    color: #fff;
+    margin-top: 3em;
+    font-size: 14px;
+    margin-bottom: 0;
 }
 .wp-caption {
     background:#FFF;
@@ -716,6 +694,9 @@ body.fixed header {
 \*------------------------------------*/
 #wrap-body, footer {
     background: #fff;
+}
+#company-info img {
+    margin-bottom: 2em;
 }
 #wrap-body ul:not(.breadcrumb):not(.post_tags):not(.list-unstyled) li:before {
     content: "●";
@@ -856,11 +837,24 @@ body.fixed header {
 .news-list li a {
     font-weight: 500;
 }
-.news-list li > a > img {
-    margin-right: 12px;
-}
 .news-list li:nth-child(even) {
     margin-bottom: 1.4em;
+}
+.zoom-effect {
+    overflow: hidden;
+    transition:all 200ms ease-in;
+}
+.zoom-effect img {
+    -webkit-transition: 0.4s ease;
+    transition: 0.4s ease;
+}
+.news-list li:hover .zoom-effect img {
+    -webkit-transform: scale(1.0);
+    transform: scale(1.1);
+}
+.news-list li > a {
+    width: 200px;
+    margin-right: 12px;
 }
 
 /*------------------------------------*\

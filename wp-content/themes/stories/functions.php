@@ -100,15 +100,14 @@ function lotus_header_scripts()
 {
     if ($GLOBALS['pagenow'] != 'wp-login.php' && !is_admin()) {
     	
-        wp_register_script('inview', get_template_directory_uri() . '/js/jquery.inview.min.js', array('jquery'), '', true);
-        
         wp_register_script('bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery'), '3.3.7', true);
         wp_enqueue_script('bootstrap');
         
-        wp_register_script('drawer', get_template_directory_uri() . '/js/drawer.min.js', array('jquery'), '3.2.1', true);
-                
         wp_register_script('bxslider', get_template_directory_uri() . '/js/jquery.bxslider.min.js', array('jquery'), '4.1.2', true);
         wp_enqueue_script('bxslider');
+        
+        wp_register_script('wow', get_template_directory_uri() . '/js/wow.min.js', array('jquery'), '1.1.3', true);
+        wp_enqueue_script('wow');
         
         wp_register_script('matchHeight', get_template_directory_uri() . '/js/jquery.matchHeight-min.js', array('jquery'), '', true);
         wp_enqueue_script('matchHeight');
