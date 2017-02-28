@@ -20,7 +20,7 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'stories');
+define('DB_NAME', 'story');
 
 /** MySQL database username */
 define('DB_USER', 'root');
@@ -46,14 +46,14 @@ define('DB_COLLATE', '');
  *
  * @since 2.6.0
  */
-define('AUTH_KEY',         'd%/<-61nV~ B,mMi_XNT19pNxHXJUttq@/9QcY6W5XwaQ.39wIo3 h[ ]+5fS( M');
-define('SECURE_AUTH_KEY',  'Tl?,?OliM!h|<&S]n<V@xP>MN:!Md%RH:/zkU!#Fn>C?&aaPC)rWw{I?LdK92]6x');
-define('LOGGED_IN_KEY',    '-D5[QOX+mwB~*h/ZnUp>boQE7FRGZ>ukzq)g#%2w{l@~5)st.hWWA}D7VB6JqOen');
-define('NONCE_KEY',        'jfr9`#jR!Wb,vpq*$)Ij)c$K7%>f]{Ed[mO(1f4HB742sqpLtRw6w(kUgiVc>)})');
-define('AUTH_SALT',        'WuBS7`5Ay]i,B]ddIm1?[,hO4ziDR6&*sPyQUidaD3[5gjY+.t^Zy{p]@d.Okr:b');
-define('SECURE_AUTH_SALT', 'boa&!LX(cvwJ_eJvw#yaP~a[NCL,::_NF<NlM<uNLjoW;m.ae{vOyTFd<zS}m0qN');
-define('LOGGED_IN_SALT',   'Df(jZ[= *z/!h~Vyj<druT4-[833nSRCsHyRuII4Iw4>cs3^RmC+e|uKk)t:587T');
-define('NONCE_SALT',       '@4HpCOw8 }6)LT^fU<9Cy^PWj#T^/tO/7d.F w8|cG?(1evDXJei<`9}{~`$,k>g');
+define('AUTH_KEY',         'fj=y7qFiJ.d]tQ Q|kCL;?sX>O|P/hkJ-Fms^ivUDB;!4F^W$=]5wVPaicseKN5j');
+define('SECURE_AUTH_KEY',  '38C95i$!GJX:jUiC.=KH8zSSQm8Rs2K%>8M)etk(jeSkP/d^;0%_0uoz F1J2x2e');
+define('LOGGED_IN_KEY',    '7@D~7d5eT4W@s[!pG y>VRNz7Elq39^^~333Z1bPDA6C5Q^=YFMqwDLgQ8m&V:4D');
+define('NONCE_KEY',        '4I`}_;leVvX6:%gDrOF148*q2(JwAQay11?/5TY*7*[JE=GA`,pDSHO2Gdm#r[ag');
+define('AUTH_SALT',        '7oeWAOaR^M{b=?Ia}R0kW#:a/vk@T8Y)^C0g]#y_,wIzu;-7#R_:ixqWOnn@xx.X');
+define('SECURE_AUTH_SALT', 'sD<rL;Ofc%y;&R$qDF)B{[BS^/(YV]{aY^G&l9p4|u;S4MsiXzs{w/[ A::CaC+I');
+define('LOGGED_IN_SALT',   'f3G2SBN9T/=basH_Lx4^OL~n~VwnNX%d[SSj{qz.RlxPiIS<qpp&gl3Og~&fkDJ=');
+define('NONCE_SALT',       'Y*b2<j19t #r[Um?,6H:]sbrjmLz72D[!9,W7Ns}5!|/qv>u<7|n<{<OVUP{$Mdg');
 
 /**#@-*/
 
@@ -87,5 +87,3 @@ if ( !defined('ABSPATH') )
 
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
-
-define('FS_METHOD', 'direct');

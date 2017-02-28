@@ -77,6 +77,17 @@
                     </p>
                 </div>
             </div>            
+            <div class="clearfix"></div>
+            <div class="col-md-6 col-md-push-6 pd-0 wow fadeInUpBig">
+                <img src="<?php echo get_bloginfo('template_url') ?>/img/top_rollover_05.jpg" class="img-responsive" />
+            </div>
+            <div class="col-md-6 col-md-pull-6 pd-0 wow fadeInUp">
+                <div class="gal-desc">
+                    <h3>最高の輝きをもたらす特別な一日、こだわった分だけ思い出深いものに</h3>
+                    <p>結婚式は、あなたの情熱を籠めた分だけ美しい思い出として心に残ります。ただ、準備段階で、会場や装飾、料理など、想像以上に準備が多く、「こんなに大変とは思わなかった」と感じるケースもございます。「STORY」では、あなたと一心同体となって思いを共有し、一生に一度の素敵な結婚式をご提案します。
+                    </p>
+                </div>
+            </div>            
         </div>
     </div>
 </div><!--End #section-gal-->
@@ -230,19 +241,7 @@
     </div>
 </div><!--End #section-blog-->
 <div id="section-gal" class="post">        
-    <h2 class="headline">Gallery</h2>
-    <ul id="list-gal" class="bxslider">
-        <li><img src="<?php echo get_bloginfo('template_url') ?>/img/gallery/03-3.jpg" /></li>
-        <li><img src="<?php echo get_bloginfo('template_url') ?>/img/gallery/04-2.jpg" /></li>
-        <li><img src="<?php echo get_bloginfo('template_url') ?>/img/gallery/08-2.jpg" /></li>
-        <li><img src="<?php echo get_bloginfo('template_url') ?>/img/gallery/16.jpg" /></li>
-        <li><img src="<?php echo get_bloginfo('template_url') ?>/img/gallery/17.jpg" /></li>
-        <li><img src="<?php echo get_bloginfo('template_url') ?>/img/gallery/18.jpg" /></li>
-        <li><img src="<?php echo get_bloginfo('template_url') ?>/img/gallery/19.jpg" /></li>
-        <li><img src="<?php echo get_bloginfo('template_url') ?>/img/gallery/20.jpg" /></li>
-        <li><img src="<?php echo get_bloginfo('template_url') ?>/img/gallery/21.jpg" /></li>
-        <li><img src="<?php echo get_bloginfo('template_url') ?>/img/gallery/22.jpg" /></li>
-    </ul><!--End list-gal-->     
+    <?php get_instagram()?>     
 </div><!--End #section-gal-->            
 <div id="section-seven">    
     <div class="container">

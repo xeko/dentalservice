@@ -70,7 +70,10 @@ jQuery(document).ready(function ($) {
         pager: false
     });
     
-    new WOW().init();
-
+    new WOW().init({
+        mobile: false
+    });
+    
+    $('.drawer').drawer();
 
 });

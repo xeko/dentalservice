@@ -12,6 +12,7 @@
         <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/img/icons/favicon-32x32.png" sizes="32x32" />
         <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/img/icons/favicon-16x16.png" sizes="16x16" />
 
+
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="<?php bloginfo('description'); ?>">
@@ -19,7 +20,7 @@
         <?php wp_head(); ?>
 
     </head>    
-    <body <?php body_class('drawer drawer--left'); ?>>
+    <body <?php body_class(); ?>>
         <?php if (is_home()): ?>
             <div id="fb-root"></div>
             <script>(function (d, s, id) {
@@ -37,18 +38,19 @@
             <div class="loading"></div>
         </div>
         <div id="wrap-content">
-            <header class="drawer-navbar drawer-navbar--fixed" role="banner">
+            <nav role="navigation" class="navbar navbar-fixed-top">
                 <div class="container">
-                    <div class="drawer-navbar-header">
-                        <a href="<?php echo home_url() ?>" class="drawer-brand"><img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="Logo" width="120" /></a>
-                        <button type="button" class="drawer-toggle drawer-hamburger">
-                            <span class="sr-only">toggle navigation</span>
-                            <span class="drawer-hamburger-icon"></span>
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <a href="tel:0364536365" class="tel hidden-md hidden-lg"><i class="fa fa-phone" aria-hidden="true"></i></a>
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mmenu">
+                            <i class="fa fa-bars" aria-hidden="true"></i>
                         </button>
+                        <a href="<?php echo home_url() ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="Logo" width="120" /></a>
                     </div>
-                    <nav class="drawer-nav" role="navigation">
+                    <!-- Collection of nav links and other content for toggling -->
+                    <div id="mmenu" class="collapse navbar-collapse">
                         <?php echo main_nav() ?>
-                    </nav>
+                    </div><!--End #mmenu-->
                 </div>
-                
-            </header>                                
+            </nav>
