@@ -706,4 +706,24 @@ function get_instagram($atts = "", $content = "") {
     <?php
 }
 
+function add_search_to_menu($items, $args) {
+      if ('header-menu' === $args->theme_location) {
+          $items .= '<li class="search-header-wrap hidden-xs hidden-sm">';
+          $items .= '<a id="search-icon-desk">'
+                  . '<div class="btnsearch"><i class="fa fa-search" aria-hidden="true"></i></div>';
+          $items .= '<form class="search-header searchform" action="' . home_url('/') . '">
+                <input name="s" class="search-input" type="text" value="' . get_search_query() . '" />
+              </form>';
+          $items .= '</a></li>';
+      }
+      return $items;
+  }
+add_filter('wp_nav_menu_items','add_search_to_menu',10,2);
 
+//Disable plugin update notification for specific plugin in WordPress
+function filter_plugin_updates( $value ) {
+ // Replace the plugin folder name and main file name with your plugin's folder and file name
+ unset( $value->response['akismet/akismet.php'] );
+ return $value;
+}
+add_filter( 'site_transient_update_plugins', 'filter_plugin_updates' );

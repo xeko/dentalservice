@@ -45,10 +45,22 @@
                             <span class="sr-only">toggle navigation</span>
                             <span class="drawer-hamburger-icon"></span>
                         </button>
+
+                        <ul class="pull-right hidden-lg hidden-md list-inline list-unstyled" id="btn-mobile">
+                            <li><a href="tel:12"><i class="fa fa-phone" aria-hidden="true"></i></a></li>
+                            <li>
+                                <div id="search-icon">
+                                    <div id="search-icon-icon"><i class="fa fa-search" aria-hidden="true"></i></div>
+                                    <form method="get" class="searchform" role="search">
+                                        <input type="text" class="field" name="s">
+                                    </form>
+                                </div><!--End #search-icon-->
+                            </li>
+                        </ul><!--End #btn-mobile-->
                     </div>
                     <nav class="drawer-nav" role="navigation">
                         <?php echo main_nav() ?>
                     </nav>
                 </div>
-                
+
             </header>                                

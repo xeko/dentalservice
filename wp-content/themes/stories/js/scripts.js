@@ -69,11 +69,28 @@ jQuery(document).ready(function ($) {
         captions: false,
         pager: false
     });
-    
+
     new WOW().init({
         mobile: false
     });
-    
+
     $('.drawer').drawer();
 
+    var isSearchHover = false;
+    $(document).click(function () {
+        if (!isSearchHover)
+            $('#search-icon form, #search-icon-desk form').fadeOut(250);
+    });
+    $(document).on('click', '#search-icon-icon, .btnsearch', function () {
+        var $$ = $(this).parent();
+        $$.find('form').fadeToggle(250);
+        setTimeout(function () {
+            $$.find('input[name=s]').focus();
+        }, 300);
+    });
+    $(document).on('mouseenter', '#search-icon, #search-icon-desk', function () {
+        isSearchHover = true;
+    }).on('mouseleave', '#search-icon, #search-icon-desk', function () {
+        isSearchHover = false;
+    });
 });
