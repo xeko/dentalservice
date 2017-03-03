@@ -1,4 +1,6 @@
-<!-- footer -->
+<div id="section-gal" class="post">        
+    <?php get_instagram() ?>     
+</div><!--End #section-gal-->
 <footer class="footer wow pulse" role="contentinfo">        
     <div id="company-info" class="clearfix text-center">
         <a href="<?php echo home_url() ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="Logo" width="140" class="center-block" /></a>
@@ -12,10 +14,9 @@
     </p>
     <!-- /copyright -->            
 </footer>
-<!-- /footer -->
 
 </div><!--End #wrap-content-->
-<?php wp_footer(); ?>		
+<?php wp_footer(); ?>
 
 </body>
 </html>

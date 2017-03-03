@@ -38,17 +38,17 @@
             <div class="col-md-4 items wow bounceInLeft">
                 <h2 class="text-uppercase headline">CONCEPT</h2>
                 <div class="text-justify">結婚式はお二人が新たな人生を歩む大事なスタート地点です。これまでにない特別な一日を演出する為、雄大な自然と融合する結婚式をお二人だけのスタイルでご提案しています。そんな最高の晴れ舞台で、ご家族やご友人に感謝の気持ちを伝える場をご用意します。</div>
-                <a href="#" class="btn btn-block">コンセプト</a>
+                <a href="concept" class="btn btn-block">コンセプト</a>
             </div>
             <div class="col-md-4 items wow fadeInUpBig">
                 <h2 class="text-uppercase headline">WEDDING</h2>
                 <div class="text-justify">結婚式ではこれから共に新たな人生を歩む大切な人にストレートに、感謝の気持ちを伝えましょう。また、これまでお世話になった両親や、相手の両親への感謝も忘れずに。「いい結婚式だったね」とみんなから思われるような結婚式にしましょう。</div>
-                <a href="#" class="btn btn-block">ウェディング</a>
+                <a href="wedding" class="btn btn-block">ウェディング</a>
             </div>
             <div class="col-md-4 items wow bounceInRight">
                 <h2 class="text-uppercase headline">FACILITY</h2>
                 <div class="text-justify">式場をどこにするのか、どのようなシチュエーションにするのか。経験豊富なウェディングプランナーがお二人のご意向に沿った最適なプランを予算内でご提案します。どのようなご要望も真摯に耳を傾け、最適な提案をしますのでまずはお気軽にご相談ください。</div>
-                <a href="#" class="btn btn-block">施設会場</a>
+                <a href="facility" class="btn btn-block">施設会場</a>
             </div>
         </div>
     </div>
@@ -96,194 +96,113 @@
         <div class="row wow zoomIn">
             <h2 class="headline">ニュース</h2>
             <ul class="news-list">
-                <li class="col-md-6">
-                    <a href="#" class="zoom-effect pull-left"><img src="<?php echo get_bloginfo('template_url') ?>/img/news-01.jpg" width="200" /></a>
-                    <div class="post-desc">
-                        <a href="#">画像をはめ込むだけで簡単に思い出のアルバムが作れる「ギャラリーページ」を追加しま</a>
-                        <ul id="post-meta" class="list-inline">
-                            <li><i class="fa fa-clock-o" aria-hidden="true"></i> 2017年1月19日</li>
-                            <li><i class="fa fa-eye" aria-hidden="true"></i> 1970</li>
-                        </ul>
-                    </div><!--End .post-desc-->
-                </li>
-                <li class="col-md-6">
-                    <a href="#" class="zoom-effect pull-left"><img src="<?php echo get_bloginfo('template_url') ?>/img/news-02.jpg" width="200" /></a>
-                    <div class="post-desc">
-                        <a href="#">テーマのアップデート情報について</a>
-                        <ul id="post-meta" class="list-inline">
-                            <li><i class="fa fa-clock-o" aria-hidden="true"></i> 2017年1月19日</li>
-                            <li><i class="fa fa-eye" aria-hidden="true"></i> 1970</li>
-                        </ul>
-                    </div><!--End .post-desc-->
-                </li>
-                <li class="col-md-6">
-                    <a href="#" class="zoom-effect pull-left"><img src="<?php echo get_bloginfo('template_url') ?>/img/news-03.jpg" width="200" /></a>
-                    <div class="post-desc">
-                        <a href="#">NEWSやプレスリリース情報の発信に最適なカスタム投稿タイプ「ニュース」をご用意しました。</a>
-                        <ul id="post-meta" class="list-inline">
-                            <li><i class="fa fa-clock-o" aria-hidden="true"></i> 2017年1月19日</li>
-                            <li><i class="fa fa-eye" aria-hidden="true"></i> 1970</li>
-                        </ul>
-                    </div><!--End .post-desc-->
-                </li>
-                <li class="col-md-6">
-                    <a href="#" class="zoom-effect pull-left"><img src="<?php echo get_bloginfo('template_url') ?>/img/news-04.jpg" width="200" /></a>
-                    <div class="post-desc">
-                        <a href="#">画像をはめ込むだけで簡単に思い出のアルバムが作れる「ギャラリーページ」を追加しま</a>
-                        <ul id="post-meta" class="list-inline">
-                            <li><i class="fa fa-clock-o" aria-hidden="true"></i> 2017年1月19日</li>
-                            <li><i class="fa fa-eye" aria-hidden="true"></i> 1970</li>
-                        </ul>
-                    </div><!--End .post-desc-->
-                </li>
+                <?php
+                $blog_args = array(
+                    'posts_per_page' => 4,
+                    'post_type' => 'blogs',
+                    'post_status' => 'publish'
+                );
+                $blog_query = new WP_Query($blog_args);
+                if ($blog_query->have_posts()) :
+                    while ($blog_query->have_posts()) : $blog_query->the_post();
+                        $blog_count = get_post_meta(get_the_ID(), 'tanaka_post_views_count', true);
+                        $blog_count = empty($blog_count) ? 0 : $blog_count;
+                        ?>
+                        <li class="col-md-6">
+                            <a href="<?php the_permalink() ?>" class="zoom-effect pull-left">
+                                <?php if (has_post_thumbnail()) : ?>                                    
+                                    <?php the_post_thumbnail('full', array('width' => '200')); ?>                                    
+                                <?php endif; ?>
+                            </a>
+                            <div class="post-desc">
+                                <a href="<?php the_permalink() ?>"><?php echo cut_title(get_the_title()) ?></a>
+                                <ul id="post-meta" class="list-inline">
+                                    <li><i class="fa fa-clock-o" aria-hidden="true"></i> <?php the_time('Y年m月d日'); ?></li>
+                                    <li><i class="fa fa-eye" aria-hidden="true"></i> <?php echo $blog_count ?></li>
+                                </ul>
+                            </div><!--End .post-desc-->
+                        </li>
+                    <?php
+                    endwhile;
+                endif;
+                wp_reset_postdata();
+                ?>            
             </ul>                       
         </div>
     </div>
 </div><!--End #section-news-->
+
 <div id="section-blog" class="post">    
     <div class="container">
         <div class="row wow fadeInUpBig">
-            <h2 class="headline">ブログ</h2>            
+            <h2 class="headline">ブログ</h2>
             <ul class="list-unstyled list-inline filter-type text-center" id="blog-type">
                 <li class="filtr filtr-active" data-filter="all">All</li>
-                <li class="filtr" data-filter="1">Design</li>
-                <li class="filtr" data-filter="2">Feature</li>
-                <li class="filtr" data-filter="3">Theme</li>
-                <li class="filtr" data-filter="4">Deverlop</li>
-                <li class="filtr" data-filter="5">Manage</li>
+                <?php
+                $cat_args = array(
+                    'orderby' => 'id',
+                    'hide_empty' => false,
+                );
+                $categories = get_categories($cat_args); //echo '<pre>'; print_r($categories);
+                if (!empty($categories)) {
+                    foreach ($categories as $cat) {
+                        if ($cat->category_count == 0) {
+                            continue;
+                        }
+                        ?>
+                        <li class="filtr" data-filter="<?php echo $cat->term_id ?>"><?php echo $cat->name; ?></li>
+                        <?php
+                    }
+                }
+                ?>
             </ul>
+
             <div class="filtr-container clearfix">
-                <div class="col-xs-6 col-sm-4 col-md-3 filtr-item" data-category="1, 5" data-sort="Busy streets">
-                    <div class="post-image">
-                        <figure>
-                            <img class="img-responsive" src="<?php echo get_bloginfo('template_url') ?>/img/blog/16.jpg" alt="sample image">                    
-                        </figure>
-                        <p>Read More</p>
+                <?php
+                global $post;
+                $post_args = array('posts_per_page' => 12, 'orderby' => 'rand');
+                $query_posts = get_posts($post_args);
+                foreach ($query_posts as $post) :
+                    setup_postdata($post);
+                    $cat_arr = get_the_category($post->ID);//echo '<pre>'; print_r($cat_arr);
+                    if (count($cat_arr) > 1):
+                        foreach ($cat_arr as $cat_val):
+                            $catIDs[] = $cat_val->cat_ID;
+                        endforeach;
+                            $catID = implode(', ', $catIDs);//echo $catID.'HOATONG';
+                            unset($catIDs);
+                    else:
+                        $catID = $cat_arr[0]->cat_ID;
+                    endif;
+//                    $catID_str = is_array($catIDs) ? implode(',', $catIDs) : $catID;
+
+                    $count = get_post_meta(get_the_ID(), 'tanaka_post_views_count', true);
+                    $count = empty($count) ? 0 : $count;
+                    ?>
+                    <div class="col-xs-6 col-sm-4 col-md-3 filtr-item" data-category="<?php echo $catID ?>">
+                        <div class="post-image">                            
+                            <figure>
+                                <?php if (has_post_thumbnail()) : ?>                                    
+                                    <?php the_post_thumbnail('full', array('class' => 'img-responsive')); ?>                                    
+    <?php endif; ?>
+                            </figure>
+                            <p><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">詳しく見る</a></p>
+                        </div>
+                        <div class="item-position"><?php echo $count ?> <i class="fa fa-eye" aria-hidden="true"></i></div>
+                        <div class="item-desc"><?php echo cut_title(get_the_title()) ?></div>
                     </div>
-                    <div class="item-position">36 <i class="fa fa-eye" aria-hidden="true"></i></div>
-                    <div class="item-desc">洗練された美しさと機能美を追求したブライダル向けW...</div>
-                </div>
-                <div class="col-xs-6 col-sm-4 col-md-3 filtr-item" data-category="2, 5" data-sort="Busy streets">
-                    <div class="post-image">
-                        <figure>
-                            <img class="img-responsive" src="<?php echo get_bloginfo('template_url') ?>/img/blog/17.jpg" alt="sample image">                    
-                        </figure>
-                        <p>Read More</p>
-                    </div>
-                    <div class="item-position">653 <i class="fa fa-eye" aria-hidden="true"></i></div>
-                    <div class="item-desc">固定ページをスタイリッシュに演出する4種類のページ...</div>
-                </div>
-                <div class="col-xs-6 col-sm-4 col-md-3 filtr-item" data-category="1, 4" data-sort="Busy streets">
-                    <div class="post-image">
-                        <figure>
-                            <img class="img-responsive" src="<?php echo get_bloginfo('template_url') ?>/img/blog/18.jpg" alt="sample image">                    
-                        </figure>
-                        <p>Read More</p>
-                    </div>
-                    <div class="item-position">864 <i class="fa fa-eye" aria-hidden="true"></i></div>
-                    <div class="item-desc">ヘッダーにYouTube動画やMP4、静止画が挿入...</div>
-                </div>
-                <div class="col-xs-6 col-sm-4 col-md-3 filtr-item" data-category="3" data-sort="Busy streets">
-                    <div class="post-image">
-                        <figure>
-                            <img class="img-responsive" src="<?php echo get_bloginfo('template_url') ?>/img/blog/19.jpg" alt="sample image">                    
-                        </figure>
-                        <p>Read More</p>
-                    </div>
-                    <div class="item-position">473 <i class="fa fa-eye" aria-hidden="true"></i></div>
-                    <span class="item-desc">思い出の写真を飾るギャラリーページ登場！</span>
-                </div>
-                <div class="col-xs-6 col-sm-4 col-md-3 filtr-item" data-category="3, 4" data-sort="Busy streets">
-                    <div class="post-image">
-                        <figure>
-                            <img class="img-responsive" src="<?php echo get_bloginfo('template_url') ?>/img/blog/20.jpg" alt="sample image">                    
-                        </figure>
-                        <p>Read More</p>
-                    </div>
-                    <div class="item-position">99 <i class="fa fa-eye" aria-hidden="true"></i></div>
-                    <div class="item-desc">専門知識のない方でも簡単にデザインされたページが作...</div>
-                </div>
-                <div class="col-xs-6 col-sm-4 col-md-3 filtr-item" data-category="2, 4" data-sort="Busy streets">
-                    <div class="post-image">
-                        <figure>
-                            <img class="img-responsive" src="<?php echo get_bloginfo('template_url') ?>/img/blog/21.jpg" alt="sample image">                    
-                        </figure>
-                        <p>Read More</p>
-                    </div>
-                    <div class="item-position">322 <i class="fa fa-eye" aria-hidden="true"></i></div>
-                    <div class="item-desc">アイキャッチ付き関連記事一覧を記事ページ下部に自動...</div>
-                </div>
-                <div class="col-xs-6 col-sm-4 col-md-3 filtr-item" data-category="1, 5" data-sort="Busy streets">
-                    <div class="post-image">
-                        <figure>
-                            <img class="img-responsive" src="<?php echo get_bloginfo('template_url') ?>/img/blog/22.jpg" alt="sample image">                    
-                        </figure>
-                        <p>Read More</p>
-                    </div>
-                    <div class="item-position">221 <i class="fa fa-eye" aria-hidden="true"></i></div>
-                    <div class="item-desc">テーマに設定されている様々なスタイルを確認する為の...</div>
-                </div>
-                <div class="col-xs-6 col-sm-4 col-md-3 filtr-item" data-category="2, 4" data-sort="Busy streets">
-                    <div class="post-image">
-                        <figure>
-                            <img class="img-responsive" src="<?php echo get_bloginfo('template_url') ?>/img/blog/23.jpg" alt="sample image">                    
-                        </figure>
-                        <p>Read More</p>
-                    </div>
-                    <div class="item-position">1123 <i class="fa fa-eye" aria-hidden="true"></i></div>
-                    <div class="item-desc">タブレット、スマホにも対応したモバイルフレンドリー...</div>
-                </div>
+                    <?php
+                endforeach;
+                wp_reset_postdata();
+                ?>                
             </div>
+            <div class="clearfix"></div>
             <div class="center-block viewmore">
                 <a href="#">ブログ一覧 <i class="fa fa-angle-double-down" aria-hidden="true"></i></a>
             </div>
         </div>
     </div>
-</div><!--End #section-blog-->
-<div id="section-gal" class="post">        
-    <?php get_instagram()?>     
-</div><!--End #section-gal-->            
-<div id="section-seven">    
-    <div class="container">
-        <div class="row">            
-            <ul class="list-unstyled hidden" id="blog">
-                <li class="clearfix">                    
-                    <h3 class="title"><a href="#">歯のホワイトニングを行うことで得られる4つの効果</a></h3>
-                    <p class="blog-content">皆さんは人前で思いっきり笑えますか？
-                        歯が汚れているのを気にしたことはありませんか？
-                        黄色く汚い歯を見せて笑うより、白く輝く歯で思いっきり笑いたいですよね！
-                        今回は、歯に着色があることでどのようなマイナス面があるか3つに絞って説明したいと思います。
-                    </p>
-                    <ul id="post-meta" class="list-inline">
-                        <li><i class="fa fa-clock-o" aria-hidden="true"></i> 2017年1月19日</li>
-                        <li><i class="fa fa-eye" aria-hidden="true"></i> 1970</li>
-                    </ul>
-                </li>
-                <li class="clearfix">
-                    <a href="#" class="zoom-effect pull-left"><img src="<?php echo get_bloginfo('template_url') ?>/img/top_rollover_02.jpg" /></a>
-                    <h3 class="title"><a href="#">歯科医院における自費診療と保険診療の違い</a></h3>
-                    <p class="blog-content">歯医者だけに限らず、内科や耳鼻科や皮膚科などに行くと、まず最初に「保険証のご提示をおねがいします」といわれますよね。
-                        しかし、保険の効かない自費診療もあるということはご存知でしょうか？
-                    </p>
-                    <ul id="post-meta" class="list-inline">
-                        <li><i class="fa fa-clock-o" aria-hidden="true"></i> 2017年1月19日</li>
-                        <li><i class="fa fa-eye" aria-hidden="true"></i> 1970</li>
-                    </ul>
-                </li>
-                <li class="clearfix">
-                    <a href="#" class="zoom-effect pull-left"><img src="<?php echo get_bloginfo('template_url') ?>/img/top_rollover_02.jpg" /></a>
-                    <h3 class="title"><a href="#">ドライマウスの対策</a></h3>
-                    <p class="blog-content">唾液を分泌させるために、食事の際はよく噛むようにしましょう。
-                        普段柔らかい食べ物ばかり食べている人は、なるべく歯ごたえのあるものを食べるように心がけてみましょう。
-                    </p>
-                    <ul id="post-meta" class="list-inline">
-                        <li><i class="fa fa-clock-o" aria-hidden="true"></i> 2016年2月10日</li>
-                        <li><i class="fa fa-eye" aria-hidden="true"></i> 34210</li>
-                    </ul>
-                </li>
-            </ul><!--End #blog-->
-        </div>
-    </div>
-</div><!--End #section-seven-->
-<?php get_footer(); 
+</div><!--End #section-blog-->        
+<?php
+get_footer();
 

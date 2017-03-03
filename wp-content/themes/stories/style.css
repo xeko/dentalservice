@@ -14,6 +14,7 @@
 /*------------------------------------*\
     MAIN
 \*------------------------------------*/
+@import "css/utility.css";
 
 body {  
     font-family: "游ゴシック", "Yu Gothic", "YuGothic", "ヒラギノ角ゴシック", "Hiragino Sans", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", "Meiryo", "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
@@ -236,7 +237,7 @@ nav.drawer-nav {
     background: #C5B8A8;
     padding: 4em 0;
     color: #fff;
-    text-shadow: 1px 1px 4px #312f2f;
+    text-shadow: 1px 1px 1px #6f6868;
 }
 .pd-0 {
     padding: 0!important;
@@ -259,9 +260,9 @@ nav.drawer-nav {
     opacity: 0;
     z-index: 3;
 }
+#blog-type li {border-bottom: 2px solid #fff;margin-bottom: 1.2em;}
 #blog-type li.filtr-active, #blog-type li:hover {
-    border-bottom: 2px solid #A08A6F;
-    margin-bottom: 1.2em;
+    border-bottom: 2px solid #A08A6F;    
 }
 .viewmore {
     text-align: center;
@@ -275,7 +276,6 @@ nav.drawer-nav {
 }
 .viewmore a:hover {
     background: #CCB395;
-    color: #696969;
 }
 .post-image:after {
     border-right: 1px solid #fff;
@@ -301,9 +301,10 @@ nav.drawer-nav {
     opacity: 0;
 }
 .item-desc {
-    margin-bottom: 1.2em;
+    margin-bottom: 1.4em;
     color: #AF926E;
-    font-weight: 400;    
+    font-size: 0.9em;
+    margin-top: 0.6em;
 }
 .filtr-item:hover .post-image:before {
     -webkit-transform: scale(1, 1);
@@ -333,6 +334,9 @@ nav.drawer-nav {
     font: italic 300 18px/1 'Open Sans', sans-serif;
     letter-spacing: 8px;
     opacity: 0;
+}
+.post-image p a {
+    color: #fff;
 }
 .headline {
     line-height: 1.6em;
@@ -458,9 +462,8 @@ time {
 	color: #080059;
 }
 .filtr-item img {
-    border-radius: 5px;
-    -webkit-filter: grayscale(40%); 
-    filter: grayscale(40%);
+    -webkit-filter: grayscale(20%); 
+    filter: grayscale(20%);
 }
 #top-bar {
     border-bottom: 1px solid rgba(255,255,255,0.1);
@@ -621,18 +624,6 @@ body.fixed header {
 #company-info img {
     margin-bottom: 2em;
 }
-#wrap-body ul:not(.breadcrumb):not(.post_tags):not(.list-unstyled) li:before {
-    content: "●";
-    position: relative;
-    color: #080059;
-    font-size: 14px;
-    margin-right: 6px;
-    display: inline-block;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    border-radius: 50%;
-    margin-left: 10px;
-}
 #wrap-body ol {
     counter-reset: number;
 }
@@ -656,7 +647,7 @@ body.fixed header {
     margin: 30px 0px 20px;
     font-size: 2.0rem;
     padding: 14px 0px;
-    background: #080059;
+    background: #9f896f;
     color: #fff;
     text-align: center;    
     position: relative;
@@ -672,7 +663,6 @@ body.fixed header {
     position: relative;
     box-sizing: border-box;
     transition: all 500ms ease;
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, .3);
 }
 #wrap-body h4 {
     margin-top: 20px;
@@ -702,19 +692,6 @@ body.fixed header {
 #wrap-body h1:before {
     top: 3px;
 }
-#wrap-body h3:before {
-    content:'';
-    position: absolute;
-    top: 0px; bottom: 0;
-    left: 0px;
-    width: 0px;
-    background: rgba(255,255,255,0.3);;    
-    transition: all 1s ease;
-}
-#wrap-body h3:hover:before {
-    width: 100%;
-}
-
 .below-entry-meta {
     font-size: 12px;
     padding-bottom: 20px;
@@ -871,7 +848,7 @@ body.fixed header {
     color: #000;
 }
 #wrap-body h3.widget-title {
-    border-bottom: 2px solid #080059;
+    border-bottom: 2px solid #9f896f;
     font-size: 18px;
     margin-bottom: 15px;
     padding-bottom: 0;
@@ -879,9 +856,10 @@ body.fixed header {
     font-weight: normal;
     padding-top: 0;
     border-left: none;
+    background: none;
 }
 #wrap-body h3.widget-title span {
-    background-color: #080059;
+    background-color: #9f896f;
     color: #fff;
     padding: 6px 12px;
     display: inline-block;

@@ -1,19 +1,17 @@
 <?php get_header(); ?>
 
-	<main role="main">
-		<!-- section -->
-		<section>
+	<section id="wrap-body">				
+		<div class="container">
+			<div class="row">
 
-			<h1><?php echo sprintf( __( '%s Search Results for ', 'html5blank' ), $wp_query->found_posts ); echo get_search_query(); ?></h1>
+			<h1><?php echo sprintf( __( '「%s」の検索結果%s件 ', THEME_NAME ), get_search_query(), $wp_query->found_posts );?></h1>
 
 			<?php get_template_part('loop'); ?>
 
 			<?php get_template_part('pagination'); ?>
 
-		</section>
-		<!-- /section -->
-	</main>
+		</div>
+		</div><!--End .container-->
+	</section><!--End #wrap-body-->
 
-<?php get_sidebar(); ?>
-
-<?php get_footer(); ?>
+<?php get_footer();

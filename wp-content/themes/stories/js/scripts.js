@@ -24,56 +24,47 @@ jQuery(document).ready(function ($) {
             }
     );
 
-    jQuery('#main-slider').bxSlider({
-        auto: true,
-        speed: 1000,
-        controls: false,
-        pause: 10000,
-        mode: 'fade',
-        captions: false,
-        pager: false,
-        startSlide: 0
-    });
-
     $('.items').matchHeight();
 
-    $(document).click(function (e) {
-        target = e.target;
-        if (($(".vce-zoomed").length === true) && !$(target).is('.search-input')) {
-            $('#navigation').find('li').removeClass("vce-zoomed");
-        }
-    });
-    $('body').on("click", ".search_header i", function (e) {
-        $(this).toggleClass('vce-item-selected');
-        $(this).parent().parent().toggleClass('vce-zoomed');
-        $(this).parent().next().find('.search-input').focus();
-        e.stopPropagation();
-    });
-
-    var filteriblog = $('.filtr-container').filterizr();
     //Filtering section nav
     $('#blog-type li').click(function () {
         $('.filter-type .filtr').removeClass('filtr-active');
         $(this).addClass('filtr-active');
     });
 
+    jQuery(document).ready(function ($) {
+        $('#main-slider').bxSlider({
+            auto: true,
+            speed: 1000,
+            controls: false,
+            pause: 10000,
+            mode: 'fade',
+            captions: false,
+            pager: false,
+            startSlide: 0
+        });
+    });
+
     $('#list-gal').bxSlider({
-        slideWidth: 400,
-        minSlides: 4,
-        maxSlides: 4,
+        slideWidth: 210,
+        minSlides: 3,
+        maxSlides: 6,
         slideMargin: 0,
         auto: true,
         speed: 1000,
         controls: true,
         pause: 10000,
         captions: false,
-        pager: false
+        pager: false,
+        moveSlides: true
     });
 
     new WOW().init({
         mobile: false
     });
 
+    var filteriblog = $('.filtr-container').filterizr();
+    
     $('.drawer').drawer();
 
     var isSearchHover = false;

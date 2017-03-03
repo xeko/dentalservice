@@ -17,7 +17,6 @@
         <meta name="description" content="<?php bloginfo('description'); ?>">
 
         <?php wp_head(); ?>
-
     </head>    
     <body <?php body_class('drawer drawer--left'); ?>>
         <?php if (is_home()): ?>

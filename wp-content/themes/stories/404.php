@@ -1,24 +1,25 @@
 <?php get_header(); ?>
 
-	<main role="main">
-		<!-- section -->
-		<section>
+<section id="wrap-body">				
+    <div class="container">
+        <div class="row">
+            <?php breadcrumb() ?>
+            <div class="col-md-8">
+                <article id="post-404">
 
-			<!-- article -->
-			<article id="post-404">
+                    <h1><?php _e('Page not found', THEME_NAME); ?></h1>
+                    <h2>
+                        <a href="<?php echo home_url(); ?>"><?php _e('Return home?', THEME_NAME); ?></a>
+                    </h2>
 
-				<h1><?php _e( 'Page not found', 'html5blank' ); ?></h1>
-				<h2>
-					<a href="<?php echo home_url(); ?>"><?php _e( 'Return home?', 'html5blank' ); ?></a>
-				</h2>
-
-			</article>
-			<!-- /article -->
-
-		</section>
-		<!-- /section -->
-	</main>
-
-<?php get_sidebar(); ?>
+                </article>
+                <!-- /article -->
+            </div>
+            <div class="col-md-4">
+                <?php get_sidebar(); ?>
+            </div>
+        </div>
+    </div><!--End .container-->
+</section><!--End #wrap-body-->
 
 <?php get_footer(); ?>
