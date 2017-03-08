@@ -31,18 +31,15 @@ jQuery(document).ready(function ($) {
         $('.filter-type .filtr').removeClass('filtr-active');
         $(this).addClass('filtr-active');
     });
-
-    jQuery(document).ready(function ($) {
-        $('#main-slider').bxSlider({
-            auto: true,
-            speed: 1000,
-            controls: false,
-            pause: 10000,
-            mode: 'fade',
-            captions: false,
-            pager: false,
-            startSlide: 0
-        });
+    $('#main-slider').bxSlider({
+        auto: true,
+        speed: 1000,
+        controls: false,
+        pause: 10000,
+        mode: 'fade',
+        captions: false,
+        pager: false,
+        startSlide: 0
     });
 
     $('#list-gal').bxSlider({
@@ -64,7 +61,7 @@ jQuery(document).ready(function ($) {
     });
 
     var filteriblog = $('.filtr-container').filterizr();
-    
+
     $('.drawer').drawer();
 
     var isSearchHover = false;

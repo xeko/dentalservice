@@ -222,7 +222,7 @@ if (function_exists('register_sidebar')) {
         'name' => __('Widget Blog', 'shiba2'),
         'description' => __('Widget of site', 'shiba2'),
         'id' => 'widget-blog',
-        'before_widget' => '<div id="%1$s" class="%2$s">',
+        'before_widget' => '<div id="%1$s" class="%2$s clearfix">',
         'after_widget' => '</div>',
         'before_title' => '<h3 class="widget-title"><span>',
         'after_title' => '</span></h3>'
