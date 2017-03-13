@@ -17,11 +17,12 @@
 @import "css/utility.css";
 
 body {  
-    font-family: "游ゴシック", "Yu Gothic", "YuGothic", "ヒラギノ角ゴシック", "Hiragino Sans", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", "Meiryo", "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
-    color: #666;
+    font-family: "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+    color: #716e6e;
     font-size: 16px;
     line-height: 2em;
     font-weight: 300;
+    letter-spacing: 1px;
 }
 /* clear */
 .clear:before,
@@ -64,6 +65,9 @@ ol, ul {
     list-style-type: none;
 }
 
+#wrap-content {
+    margin-top: 50px;
+}
 /*------------------------------------*\
     NAVIGATION
 \*------------------------------------*/
@@ -239,14 +243,10 @@ nav.drawer-nav {
     padding: 35px 0 0 0;
     margin: 0 0 30px 0;
 }
-#section-desc .row {
-    padding: 0 12px;
-}
 #section-second {
-    background: #C5B8A8;
+    background: #1d1b1b;
     padding: 4em 0;
-    color: #fff;
-    text-shadow: 1px 1px 1px #6f6868;
+    color: #ece5e5;
 }
 .pd-0 {
     padding: 0!important;
@@ -269,22 +269,22 @@ nav.drawer-nav {
     opacity: 0;
     z-index: 3;
 }
-#blog-type li {border-bottom: 2px solid #fff;margin-bottom: 1.2em;}
 #blog-type li.filtr-active, #blog-type li:hover {
     border-bottom: 2px solid #A08A6F;    
+    margin-bottom: 1.2em;
 }
 .viewmore {
     text-align: center;
     margin: 2em 0 2.4em;
 }
 .viewmore a {
-    background: #A08A6F;
+    background: #2f2f2e;
     color: #fff;
     padding: 10px 20px;
     transition: all 200ms ease-in;    
 }
 .viewmore a:hover {
-    background: #CCB395;
+    background: #9F886E;
 }
 .post-image:after {
     border-right: 1px solid #fff;
@@ -310,24 +310,26 @@ nav.drawer-nav {
     opacity: 0;
 }
 .item-desc {
-    margin-bottom: 1.4em;
     color: #AF926E;
     font-size: 0.9em;
-    margin-top: 0.6em;
+    line-height: 1.6;
+    margin: 1.4em 1em 0.6em;
+    display: block;
+    text-decoration: none;
 }
-.filtr-item:hover .post-image:before {
+.filtr-item:hover .post-image:before, .post-image:hover:before {
     -webkit-transform: scale(1, 1);
     transform: scale(1, 1);
     opacity: 1;
 }
-.filtr-item:hover .post-image:after {
+.filtr-item:hover .post-image:after, .post-image:hover:after {
     -webkit-transform: scale(1, 1);
     transform: scale(1, 1);
     opacity: 1;
 }
-.filtr-item:hover .post-image p, .filtr-item:hover .post-image figure::after { opacity: 1}
-.filtr-item:hover .post-image p { letter-spacing: 2px;}
-.filtr-item:hover .item-position { 
+.filtr-item:hover .post-image p, .filtr-item:hover .post-image figure::after, .post-image:hover figure::after, .post-image:hover p { opacity: 1}
+.filtr-item:hover .post-image p, .post-image:hover p { letter-spacing: 2px;}
+.filtr-item:hover .item-position, .post-image:hover ~ .item-position { 
     opacity: 0;
     -webkit-transition: .35s ease-in-out;
     transition: .35s ease-in-out;
@@ -343,9 +345,6 @@ nav.drawer-nav {
     font: italic 300 18px/1 'Open Sans', sans-serif;
     letter-spacing: 8px;
     opacity: 0;
-}
-.post-image p a {
-    color: #fff;
 }
 .headline {
     line-height: 1.6em;
@@ -379,23 +378,21 @@ nav.drawer-nav {
     -moz-transition: background-color 0.5s;
     -webkit-transition: background-color 0.5s;
     -o-transition: background-color 0.5s;
-    text-shadow: 1px 1px 2px #dedcdc;
+    font-weight: bold;
    
 }
 #section-second .btn-block:hover {
     background-color: #775D3D;
     color: #fff;
-    transition: background-color 0.6s;
-    -moz-transition: background-color 0.6s;
-    -webkit-transition: background-color 0.6s;
-    -o-transition: background-color 0.6s;
-    text-shadow: 1px 1px 4px #312f2f;
+    margin: 1em 0;
+    padding: 10px 0;
 }
 #section-gal {
     padding: 4em 0;
+    background: #fff;
 }
 .gal-desc {
-    padding: 1em 1em;
+    padding: 1em 2em;
 }
 .gal-desc h3 {
     font-family: "Times New Roman", "游明朝", "Yu Mincho", "游明朝体", "YuMincho", "ヒラギノ明朝 Pro W3", "Hiragino Mincho Pro", "HiraMinProN-W3", "HGS明朝E", "ＭＳ Ｐ明朝", "MS PMincho", serif;
@@ -407,11 +404,7 @@ nav.drawer-nav {
     text-align: center;
 }
 .block {display: block;}
-time {
-    color: #585252;
-    font-weight: bold;
-    font-size: 12px;
-}
+
 #list-news li {
     margin-bottom: 18px;
     border-bottom: 1px dashed #E2E1E1;
@@ -442,6 +435,9 @@ time {
 #blog li {
     margin-bottom: 22px;
 }
+.post-image p a {
+    color: #fff;
+}
 .item-position {
     background-color: rgba(0,0,0,0.5);
     border-radius: 5px;
@@ -464,9 +460,16 @@ time {
     font-size: 12px;
     color: #aaa;
 }
+#time-tbl dd, #time-tbl dt {
+    line-height: 1.8em;
+}
+#time-tbl {
+	color: #080059;
+}
 .filtr-item img {
-    -webkit-filter: grayscale(20%); 
-    filter: grayscale(20%);
+    border-radius: 5px;
+    -webkit-filter: grayscale(40%); 
+    filter: grayscale(40%);
 }
 .copyright {
     padding: 1em 0;
@@ -511,13 +514,31 @@ time {
     PAGE, POST
 \*------------------------------------*/
 
+#wrap-body, footer {
+    background: #fff;
+}
+#company-info img {
+    margin-bottom: 2em;
+}
+#wrap-body ul:not(.breadcrumb):not(.post_tags):not(.list-unstyled):not(.pagination) li:before{
+    content: "";
+    background: #9f896f;
+    margin-right: 6px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    margin-left: 10px;
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+}
 #wrap-body ol {
     counter-reset: number;
 }
 #wrap-body ol li:before {
     counter-increment: number;
     content: counter(number);
-    background: #080059;
+    background: #9f896f;
     color: #fff;
     font-size: .8em;
     font-family: 'Lato',sans-serif;
@@ -534,10 +555,13 @@ time {
     margin: 30px 0px 20px;
     font-size: 2.0rem;
     padding: 14px 0px;
-    background: #9f896f;
+    background: #31302f;
     color: #fff;
     text-align: center;    
     position: relative;
+    line-height: 1.6;
+}
+#wrap-body h2 {
     line-height: 1.6;
 }
 #wrap-body h3 {
@@ -545,11 +569,13 @@ time {
     font-size: 2.2rem;
     font-weight: bold;
     padding: 8px 10px 8px 15px;
-    border-left: 5px solid #080059;
+    border-left: 5px solid #9f886e;
     background: #eee;
     position: relative;
     box-sizing: border-box;
     transition: all 500ms ease;
+    line-height: 1.6;
+    color: #9f886e;
 }
 #wrap-body h4 {
     margin-top: 20px;
@@ -565,6 +591,9 @@ time {
     padding: 10px 6px;
     background-color: #eee;
 }
+#wrap-body article {
+    padding: 0 10px;
+}
 #wrap-content h1:before, #wrap-content h1:after {
     content: '';
     display: block;
@@ -576,6 +605,22 @@ time {
 #wrap-body h1:before {
     top: 3px;
 }
+#wrap-body h3:before {
+    content:'';
+    position: absolute;
+    top: 0px; bottom: 0;
+    left: 0px;
+    width: 0px;
+    background: transparent;
+    transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -webkit-transition: all 1s ease;
+    -o-transition: all 1s ease;
+}
+#wrap-body h3:hover:before {
+    width: 100%;
+}
+
 .below-entry-meta {
     font-size: 12px;
     padding-bottom: 20px;
@@ -604,25 +649,55 @@ time {
     padding-right: 8px;
 }
 .post-header figure img {
-    width: 100%
+    width: 100%;
+    min-height: 160px;
+}
+.box-content {
+    margin: 2em 0 1em;
+}
+/*------------------------------------*\
+    RELATED
+\*------------------------------------*/
+#related h2 {
+    color: #000;
+    margin-top: 1.2em;
+    border-bottom: 2px solid #000;
+    font-size: 1.6em;
+}
+#related p {
+    line-height: 1.6;
+}
+.dateview {
+    font-size: 0.6em;
+    color: #585252;
+}
+#list-post > li {
+    width: 100%;
+    border-bottom: 1px dashed #B9B4B4;
+    margin-bottom: 2em;
+    padding-bottom: 0.8em;
+    overflow: hidden;
+}
+#list-post li img {
+    margin-right: 12px;
 }
 /*------------------------------------*\
     BREADCRUMB
 \*------------------------------------*/
 .breadcrumb {
-    margin-top: 5em;
+    margin-top: 3em;
 }
 /*------------------------------------*\
     NEWS
 \*------------------------------------*/
-.news-list {
+.news-list, .news-list li {
     overflow: hidden;
+}
+.news-list li {
+    margin-bottom: 6px;
 }
 .news-list li a {
     font-weight: 500;
-}
-.news-list li:nth-child(even) {
-    margin-bottom: 1.4em;
 }
 .zoom-effect {
     overflow: hidden;
@@ -704,7 +779,6 @@ time {
     outline: none;
     padding: 0 10px 0 20px;
 }
-
 /*------------------------------------*\
     SIDEBAR
 \*------------------------------------*/
@@ -732,22 +806,46 @@ time {
     color: #000;
 }
 #wrap-body h3.widget-title {
-    border-bottom: 2px solid #9f896f;
-    font-size: 18px;
+    border-bottom: 2px solid #31302f;
+    font-size: 16px;
     margin-bottom: 15px;
-    margin-top: 1em;
     padding-bottom: 0;
     padding-left: 0;
     font-weight: normal;
     padding-top: 0;
     border-left: none;
-    background: none;
+    margin: 20px 0;
+    background: transparent;
 }
 #wrap-body h3.widget-title span {
-    background-color: #9f896f;
+    background-color: #31302f;
     color: #fff;
     padding: 6px 12px;
     display: inline-block;
+}
+#wrap-body .blog h3 {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: none;
+    font-size: 1.8rem;    
+}
+#wrap-body .blog img {
+    margin-bottom: 12px;
+}
+#wrap-body .blog p {
+    line-height: 1.6;
+}
+.line-dot {
+    border-bottom: 1px dashed #ccc;
+    margin-bottom: 1.2em;
+}
+.sidebar li {
+    margin-bottom: 12px;
+}
+.sidebar li img {
+    width: 80px;
+    margin-right: 8px;
 }
 /*------------------------------------*\
     SHARE BUTTON
@@ -782,6 +880,16 @@ time {
     box-shadow: 0 3px 0 #ad3a2d;
 }
 /*------------------------------------*\
+    PAGINATION
+\*------------------------------------*/
+    .post-nav li a {
+        color: #000046;
+    }
+    .post-nav li .active {
+        background: #2b2a2a;
+        border: #000;
+    }
+/*------------------------------------*\
     RESPONSIVE
 \*------------------------------------*/
 @media only screen and (max-width:1024px) {
@@ -798,7 +906,7 @@ time {
     }
     .post-header {
         background-color: rgba(0,0,0,.6);
-        margin-top: 44px;
+        margin-top: 60px;
     }
     body.page #wrap-content h1 {
         font-size: 30px;
@@ -809,7 +917,7 @@ time {
     }
     .post-header figure {
         position: fixed;
-        top: 44px;
+        top: 60px;
         z-index: -1;
         width: 100%;
         height: 600px;
@@ -846,7 +954,6 @@ time {
         margin-bottom: 0.8em;
         font-size: 22px;
     }
-    time {font-size: 14px;}
     #navigation {
         line-height: normal;
     }
@@ -883,6 +990,22 @@ time {
     .slogan {
         width: 110px;
         padding-top: 2.4em;
+    }
+    .news-list li > a {
+        width: 160px;
+        padding-top: 8px; 
+}
+    .news-list img {
+
+        height: auto;
+    }
+    img.alignright,
+    img.alignleft {
+        width: 100%;
+        margin-bottom: 0.8em;
+    }
+    #list-post li img {
+        width: 120px;
     }
 }
 

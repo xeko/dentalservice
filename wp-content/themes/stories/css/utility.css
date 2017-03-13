@@ -2,7 +2,7 @@
     Created on : Mar 2, 2017, 5:14:24 PM
     Author     : miyashiroriona1
 */
-ul.listCheck li:before {
+ul.check li:before {
     background: #fff;
     border: 2px solid #888181;
     content: "";
@@ -13,7 +13,7 @@ ul.listCheck li:before {
     top: 8px;
     width: 16px;
 }
-ul.listCheck li:after {
+ul.check li:after {
     border-bottom: 2px solid #47aeb2;
     border-left: 2px solid #47aeb2;
     content: "";
@@ -26,7 +26,7 @@ ul.listCheck li:after {
     -webkit-transform: rotate(-45deg);
     width: 10px;
 }
-ul.listCheck li {
+ul.check li {
     margin-bottom: 10px;
     padding-left: 2em;
     position: relative;
