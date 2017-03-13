@@ -35,9 +35,9 @@
 		                            </div><!--End #post-content-->
 		                                
 		                            <?php edit_post_link(); // Always handy to have Edit Post Links available ?>
-                                            
+
 		                            <?php related_post() ?>
-                                            <div class="clearfix"></div>
+
 		                        </article>
 		                        <!-- /article -->
 

@@ -469,72 +469,65 @@ function breadcrumb($divOption = array("id" => "breadcrumb", "class" => "breadcr
             $tagAttribute .= sprintf(' %s="%s"', $attrName, $attrValue);
         }
         //$str.= '<div' . $tagAttribute . '>';
-        $str.= '<ul class="breadcrumb breadcrumb-arrow">';
-        $str.= '<li><a href="' . home_url() . '/"><i class="fa fa-home"></i><span itemprop="title"></span></a></li>';
+        $str .= '<ul class="breadcrumb breadcrumb-arrow">';
+        $str .= '<li><a href="' . home_url() . '/"><i class="fa fa-home"></i><span itemprop="title"></span></a></li>';
 
         if (is_category()) {
             $cat = get_queried_object();
             if ($cat->parent != 0) {
                 $ancestors = array_reverse(get_ancestors($cat->cat_ID, 'category'));
                 foreach ($ancestors as $ancestor) {
-                    $str.=' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li><a href="' . get_category_link($ancestor) . '" itemprop="url"><span itemprop="title">' . get_cat_name($ancestor) . '</span></a></li>';
+                    $str .= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li itemtype="//data-vocabulary.org/Breadcrumb"><a href="' . get_category_link($ancestor) . '" itemprop="url"><span itemprop="title">' . get_cat_name($ancestor) . '</span></a></li>';
                 }
             }
-            $str.=' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li><span itemprop="title">' . $cat->name . '</span></li>';
+            $str .= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li itemtype="//data-vocabulary.org/Breadcrumb"><span itemprop="title">' . $cat->name . '</span></li>';
         } elseif (is_single()) {
-
-            if ( get_post_type() != 'post' ) {
-                    $post_type = get_post_type_object(get_post_type());
-                    $str.=' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li><a href="' . get_post_type_archive_link(get_post_type()) . '"><span itemprop="title">' . $post_type->name . '</span></a> </li>';
-                    $str.= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li>' . $post->post_title . '</li>';
-                } else {
-                    $categories = get_the_category($post->ID);
-                    $cat = $categories[0];
-                    if ($cat->parent != 0) {
-                        $ancestors = array_reverse(get_ancestors($cat->cat_ID, 'category'));
-                        foreach ($ancestors as $ancestor) {
-                            $str.='<li><a href="' . get_category_link($ancestor) . '"><span itemprop="title">' . get_cat_name($ancestor) . '</span></a></li>';
-                        }
-                    }
-                    $str.=' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li><a href="' . get_category_link($cat->term_id) . '" itemprop="url"><span itemprop="title">' . $cat->cat_name . '</span></a></li>';
-                    $str.= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li>' . $post->post_title . '</li>';
-                }                        
+            $categories = get_the_category($post->ID);
+            $cat = $categories[0];
+            if ($cat->parent != 0) {
+                $ancestors = array_reverse(get_ancestors($cat->cat_ID, 'category'));
+                foreach ($ancestors as $ancestor) {
+                    $str .= '<li itemtype="//data-vocabulary.org/Breadcrumb"><a href="' . get_category_link($ancestor) . '" itemprop="url"><span itemprop="title">' . get_cat_name($ancestor) . '</span></a></li>';
+                }
+            }
+            $str .= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li itemtype="//data-vocabulary.org/Breadcrumb"><a href="' . get_category_link($cat->term_id) . '" itemprop="url"><span itemprop="title">' . $cat->cat_name . '</span></a></li>';
+            $str .= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li itemtype="//data-vocabulary.org/Breadcrumb">' . $post->post_title . '</li>';
         } elseif (is_page()) {
             if ($post->post_parent != 0) {
                 $ancestors = array_reverse(get_post_ancestors($post->ID));
                 foreach ($ancestors as $ancestor) {
-                    $str.=' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li><a href="' . get_permalink($ancestor) . '" itemprop="url"><span itemprop="title">' . get_the_title($ancestor) . '</span></a></li>';
+                    $str .= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li itemtype="//data-vocabulary.org/Breadcrumb"><a href="' . get_permalink($ancestor) . '" itemprop="url"><span itemprop="title">' . get_the_title($ancestor) . '</span></a></li>';
                 }
             }
-            $str.= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li><span itemprop="title">' . $post->post_title . '</span></li>';
+            $str .= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li itemtype="//data-vocabulary.org/Breadcrumb"><span itemprop="title">' . $post->post_title . '</span></li>';
         } elseif (is_date()) {
             if (is_year()) {
-                $str.= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li>' . get_the_time('Y') . '年</li>';
+                $str .= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li>' . get_the_time('Y') . '年</li>';
             } else if (is_month()) {
-                $str.= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li><a href="' . get_year_link(get_the_time('Y')) . '">' . get_the_time('Y') . '年</a></li>';
-                $str.= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li>' . get_the_time('n') . '月</li>';
+                $str .= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li><a href="' . get_year_link(get_the_time('Y')) . '">' . get_the_time('Y') . '年</a></li>';
+                $str .= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li>' . get_the_time('n') . '月</li>';
             } else if (is_day()) {
-                $str.= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li><a href="' . get_year_link(get_the_time('Y')) . '">' . get_the_time('Y') . '年</a></li>';
-                $str.= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li><a href="' . get_month_link(get_the_time('Y'), get_the_time('m')) . '">' . get_the_time('n') . '月</a></li>';
-                $str.= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li>' . get_the_time('j') . '日</li>';
+                $str .= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li><a href="' . get_year_link(get_the_time('Y')) . '">' . get_the_time('Y') . '年</a></li>';
+                $str .= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li><a href="' . get_month_link(get_the_time('Y'), get_the_time('m')) . '">' . get_the_time('n') . '月</a></li>';
+                $str .= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li>' . get_the_time('j') . '日</li>';
             }
             if (is_year() && is_month() && is_day()) {
-                $str.= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li>' . wp_title('', false) . '</li>';
+                $str .= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li>' . wp_title('', false) . '</li>';
             }
         } elseif (is_search()) {
-            $str.=' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li><span itemprop="title">「' . get_search_query() . '」で検索した結果</span></li>';
+            $str .= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li itemtype="//data-vocabulary.org/Breadcrumb"><span itemprop="title">「' . get_search_query() . '」で検索した結果</span></li>';
         } elseif (is_author()) {
-            $str .=' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li><span itemprop="title">投稿者 : ' . get_the_author_meta('display_name', get_query_var('author')) . '</span></li>';
+            $str .= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li itemtype="//data-vocabulary.org/Breadcrumb"><span itemprop="title">投稿者 : ' . get_the_author_meta('display_name', get_query_var('author')) . '</span></li>';
         } elseif (is_tag()) {
-            $str.=' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li><span itemprop="title">タグ : ' . single_tag_title('', false) . '</span></li>';
+            $str .= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li itemtype="//data-vocabulary.org/Breadcrumb"><span itemprop="title">タグ : ' . single_tag_title('', false) . '</span></li>';
         } elseif (is_attachment()) {
-            $str.= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li><span itemprop="title">' . $post->post_title . '</span></li>';
+            $str .= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li itemtype="//data-vocabulary.org/Breadcrumb"><span itemprop="title">' . $post->post_title . '</span></li>';
         } elseif (is_404()) {
-            $str.=' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li>ページがみつかりません。</li>';
+            $str .= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li>ページがみつかりません。</li>';
         } else {
-            $str.=' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li><span itemprop="title">' . wp_title('', false) . '</span></li>';
+            $str .= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li itemtype="//data-vocabulary.org/Breadcrumb"><span itemprop="title">' . wp_title('', true) . '</span></li>';
         }
-        $str.='</ul>';
+        $str .= '</ul>';
     }
     echo $str;
 }
@@ -542,68 +535,65 @@ function breadcrumb($divOption = array("id" => "breadcrumb", "class" => "breadcr
 function related_post() {
     global $post;
     $max_articles = 8;  // How many articles to display
-    
-    echo '<div id="related"><h2>関連記事</h2>';
 
-    if($post->post_type == "post"){
+    echo '<div id="related-articles"><h2>関連記事</h2><ul class="list-unstyled" id="list-post">';
 
-        echo '<ul class="list-unstyled">';
-        
-        $elms = array();
-        $tag_related_posts = array();
-        $cat_related_posts = array();
-        $cnt = 0;
-        
-        $article_tags = get_the_tags();
-        $tags_string = '';
-        if ($article_tags) {
-            foreach ($article_tags as $article_tag) {
-                $tags_string .= $article_tag->slug . ',';
-            }
+    $cnt = 0;
+
+    $article_tags = get_the_tags();
+    $tags_string = '';
+    if ($article_tags) {
+        foreach ($article_tags as $article_tag) {
+            $tags_string .= $article_tag->slug . ',';
         }
-        if(!empty($tags_string)) : 
-            $tag_related_posts = get_posts('exclude=' . $post->ID . '&numberposts=' . $max_articles . '&tag=' . $tags_string);        
-        endif;
+    }
+    $tag_related_posts = get_posts('exclude=' . $post->ID . '&numberposts=' . $max_articles . '&tag=' . $tags_string);
 
-        // Only if there's not enough tag related articles,
-        // we add some from the same category    
-            
+    if ($tag_related_posts) {
+        foreach ($tag_related_posts as $related_post) {
+            $cnt++;
+            echo '<li class="child-' . $cnt . '"><div class="col-md-3 col-xs-6">';
+            $image_id = get_post_thumbnail_id($related_post->ID);
+            $image_url = wp_get_attachment_image_src($image_id, array(150, 120), true);
+            ?>
+            <a href="<?php echo get_permalink($related_post->ID) ?>" rel="bookmark" title="<?php the_title_attribute(array('post' => $related_post->ID)); ?>"><img src="<?php echo $image_url[0]; ?>" alt="" class=""/></a>
+            <time class="meta-item"><i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo get_the_time('d-m-Y', $post->ID); ?></time>
+            <?php
+            echo '<a href="' . get_permalink($related_post->ID) . '" class="title">';
+            echo $related_post->post_title . '</a></div></li>';
+        }
+    }
+
+    // Only if there's not enough tag related articles,
+    // we add some from the same category
+
+    if ($cnt < $max_articles) {
+
         $article_categories = get_the_category($post->ID);
         $category_string = '';
-        foreach($article_categories as $category) { 
+        foreach ($article_categories as $category) {
             $category_string .= $category->cat_ID . ',';
         }
-        
+
         $cat_related_posts = get_posts('exclude=' . $post->ID . '&numberposts=' . $max_articles . '&category=' . $category_string);
 
-        if(!empty($tag_related_posts) || !empty($cat_related_posts))
-            $elms = array_merge($tag_related_posts, $cat_related_posts);
-            
-        if ($elms) {
-            foreach ($elms as $related_post) {
-                $cnt++; 
-                if ($cnt > $max_articles) break;
-
-                $count = get_post_meta($related_post->ID, 'tanaka_post_views_count', true);
-                $count = empty($count) ? 0 : $count;
-
-                echo '<li class="col-md-3 col-xs-6 items">';
+        if ($cat_related_posts) {
+            foreach ($cat_related_posts as $related_post) {
+                $cnt++;
+                if ($cnt > $max_articles)
+                    break;
+                echo '<li class="child-' . $cnt . '"><div class="col-md-3 col-xs-6">';
                 $image_id = get_post_thumbnail_id($related_post->ID);
-                $image_url = wp_get_attachment_image_src($image_id, 'medium', true);
+                $image_url = wp_get_attachment_image_src($image_id, array(150, 120), true);
                 ?>
-                    <a href="<?php echo get_permalink($related_post->ID) ?>" rel="bookmark" title="<?php the_title_attribute(array('post' => $related_post->ID)); ?>"><img src="<?php echo $image_url[0]; ?>" alt="" class=""/>
-                    <ul class="list-inline list-unstyled dateview">
-                        <li><time class="meta-item"><i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo get_the_time('Y年m月d日', $post->ID); ?></time></li>
-                        <li><?php echo $count?> <i class="fa fa-eye" aria-hidden="true"></i></li>
-                    </ul>                
+                <a href="<?php echo get_permalink($related_post->ID) ?>" rel="bookmark" title="<?php the_title_attribute(array('post' => $related_post->ID)); ?>"><img src="<?php echo $image_url[0]; ?>" alt="" class=""/></a>
+                <time class="meta-item"><i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo get_the_time('d-m-Y', $post->ID); ?></time>
                 <?php
-                echo '<p>'.mb_substr($related_post->post_title, 0, 16) . '</p></a></li>';
+                echo '<a href="' . get_permalink($related_post->ID) . '" class="title">';
+                echo $related_post->post_title . '</a></div></li>';
             }
         }
-        
-        } else { //is custom post type
-            related_by_custom_post_type();
-        }
+    }
 
     echo '</ul></div>';
 }
@@ -744,129 +734,4 @@ function cut_str($text, $limit = 25) {
     $more = (mb_strlen($text) > $limit) ? TRUE : FALSE;
     $text = mb_substr($text, 0, $limit, 'UTF-8');
     return array($text, $more);
-}
-function pagination( $args = array() ) {
-    
-    $defaults = array(
-        'range'           => 4,
-        'custom_query'    => FALSE,
-        'previous_string' => __( 'Previous', THEME_NAME ),
-        'next_string'     => __( 'Next', THEME_NAME ),
-        'before_output'   => '<div class="clearfix"></div><div class="post-nav"><ul class="pagination pagination-sm">',
-        'after_output'    => '</ul></div>'
-    );
-    
-    $args = wp_parse_args( 
-        $args, 
-        apply_filters( 'pagination_defaults', $defaults )
-    );
-    
-    $args['range'] = (int) $args['range'] - 1;
-    if ( !$args['custom_query'] )
-        $args['custom_query'] = @$GLOBALS['wp_query'];
-    $count = (int) $args['custom_query']->max_num_pages;
-    $page  = intval( get_query_var( 'paged' ) );
-    $ceil  = ceil( $args['range'] / 2 );
-    
-    if ( $count <= 1 )
-        return FALSE;
-    
-    if ( !$page )
-        $page = 1;
-    
-    if ( $count > $args['range'] ) {
-        if ( $page <= $args['range'] ) {
-            $min = 1;
-            $max = $args['range'] + 1;
-        } elseif ( $page >= ($count - $ceil) ) {
-            $min = $count - $args['range'];
-            $max = $count;
-        } elseif ( $page >= $args['range'] && $page < ($count - $ceil) ) {
-            $min = $page - $ceil;
-            $max = $page + $ceil;
-        }
-    } else {
-        $min = 1;
-        $max = $count;
-    }
-    
-    $echo = '';
-    $previous = intval($page) - 1;
-    $previous = esc_attr( get_pagenum_link($previous) );
-    
-    $firstpage = esc_attr( get_pagenum_link(1) );
-    if ( $firstpage && (1 != $page) )
-        $echo .= '<li class="previous"><a href="' . $firstpage . '">' . __( '前へ', THEME_NAME ) . '</a></li>';
-    if ( $previous && (1 != $page) )
-        $echo .= '<li><a href="' . $previous . '" title="' . __( '前へ', THEME_NAME) . '">' . $args['previous_string'] . '</a></li>';
-    
-    if ( !empty($min) && !empty($max) ) {
-        for( $i = $min; $i <= $max; $i++ ) {
-            if ($page == $i) {
-                $echo .= '<li class="active"><span class="active">' . str_pad( (int)$i, 2, '0', STR_PAD_LEFT ) . '</span></li>';
-            } else {
-                $echo .= sprintf( '<li><a href="%s">%002d</a></li>', esc_attr( get_pagenum_link($i) ), $i );
-            }
-        }
-    }
-    
-    $next = intval($page) + 1;
-    $next = esc_attr( get_pagenum_link($next) );
-    if ($next && ($count != $page) )
-        $echo .= '<li><a href="' . $next . '" title="' . __( '次へ', THEME_NAME) . '">' . $args['next_string'] . '</a></li>';
-    
-    $lastpage = esc_attr( get_pagenum_link($count) );
-    if ( $lastpage ) {
-        $echo .= '<li class="next"><a href="' . $lastpage . '">' . __( '次へ', THEME_NAME ) . '</a></li>';
-    }
-    if ( isset($echo) )
-        echo $args['before_output'] . $echo . $args['after_output'];
-}
-
-function customize_pagination($args) {
-
-    $args['previous_string'] = '«';
-    $args['next_string'] = '»';
-
-    return $args;
-}
-add_filter('pagination_defaults', 'customize_pagination');
-
-function related_by_custom_post_type () {
-
-    global $post;
-    
-    $args = array(
-        'post_type' => $post->post_type,
-        'post_status' => 'publish',
-        'posts_per_page' => 8,
-        'orderby'           => 'date',
-        'order'             => 'DESC',
-        'post__not_in' => array ($post->ID),
-    );
-    $related_items = new WP_Query( $args );
-    
-    if ($related_items->have_posts()) :
-        echo '<ul class="list-unstyled" id="list-post">';
-        while ( $related_items->have_posts() ) : $related_items->the_post();
-        $count = get_post_meta(get_the_ID(), 'tanaka_post_views_count', true);
-        $count = empty($count) ? 0 : $count;
-        ?>
-            <li>
-                <a href="<?php the_permalink(); ?>">
-                    <?php if (has_post_thumbnail()) : ?>                                    
-                        <?php the_post_thumbnail(array(200, ''), array('class' => 'pull-left')); ?>
-                    <?php endif; ?>
-                    <ul class="list-inline list-unstyled dateview">
-                        <li><time class="meta-item"><i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo get_the_time('Y年m月d日', get_the_ID()); ?></time></li>
-                        <li class="pull-right"><?php echo $count?> <i class="fa fa-eye" aria-hidden="true"></i></li>
-                    </ul>
-                    <p><?php echo get_the_title()?></p>
-                </a>
-            </li>
-        <?php
-        endwhile;
-        echo '</ul>';
-    endif;
-    wp_reset_postdata();
 }
