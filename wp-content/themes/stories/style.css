@@ -110,7 +110,7 @@ nav.drawer-nav {
     background: rgba(245, 245, 245, 0.88);
     margin: 0;
     padding: 0;
-    border-top: 1px solid rgba(159, 137, 111, 0.52);    
+    border-top: 1px solid rgba(159, 137, 111, 0.52);
 }
 .dropdown-menu li a{
     font-size: 16px;
