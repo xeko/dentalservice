@@ -21,7 +21,7 @@
 
 <div id="section-desc" class="clearfix">
     <div class="container">
-        <div class="row">
+        <div class="row wow bounceInUp">
             <h2 class="headline">TRUE STORY</h2>
             <div class="text-center">
                 素敵な人生のストーリーは、ガーデンウェディングから始まります。<br />
@@ -35,20 +35,20 @@
 <div id="section-second" class="text-center">
     <div class="container">
         <div class="row">
-            <div class="col-md-4 items">
+            <div class="col-md-4 items wow bounceInLeft">
                 <h2 class="text-uppercase headline">CONCEPT</h2>
                 <div class="text-justify">結婚式はお二人が新たな人生を歩む大事なスタート地点です。これまでにない特別な一日を演出する為、雄大な自然と融合する結婚式をお二人だけのスタイルでご提案しています。そんな最高の晴れ舞台で、ご家族やご友人に感謝の気持ちを伝える場をご用意します。</div>
-                <a href="#" class="btn btn-block">コンセプト</a>
+                <a href="concept" class="btn btn-block">コンセプト</a>
             </div>
-            <div class="col-md-4 items">
+            <div class="col-md-4 items wow fadeInUpBig">
                 <h2 class="text-uppercase headline">WEDDING</h2>
                 <div class="text-justify">結婚式ではこれから共に新たな人生を歩む大切な人にストレートに、感謝の気持ちを伝えましょう。また、これまでお世話になった両親や、相手の両親への感謝も忘れずに。「いい結婚式だったね」とみんなから思われるような結婚式にしましょう。</div>
-                <a href="#" class="btn btn-block">ウェディング</a>
+                <a href="wedding" class="btn btn-block">ウェディング</a>
             </div>
-            <div class="col-md-4 items">
+            <div class="col-md-4 items wow bounceInRight">
                 <h2 class="text-uppercase headline">FACILITY</h2>
                 <div class="text-justify">式場をどこにするのか、どのようなシチュエーションにするのか。経験豊富なウェディングプランナーがお二人のご意向に沿った最適なプランを予算内でご提案します。どのようなご要望も真摯に耳を傾け、最適な提案をしますのでまずはお気軽にご相談ください。</div>
-                <a href="#" class="btn btn-block">施設会場</a>
+                <a href="facility" class="btn btn-block">施設会場</a>
             </div>
         </div>
     </div>
@@ -56,10 +56,10 @@
 <div id="section-gal">
     <div class="container">
         <div class="row">
-            <div class="col-md-6 col-md-push-6 pd-0">
+            <div class="col-md-6 col-md-push-6 pd-0 wow bounceInRight">
                 <img src="<?php echo get_bloginfo('template_url') ?>/img/column-layout03.jpg" class="img-responsive" />
             </div>
-            <div class="col-md-6 col-md-pull-6 pd-0">
+            <div class="col-md-6 col-md-pull-6 pd-0 wow bounceInLeft">
                 <div class="gal-desc">
                     <h3>大切なひとに自分の言葉で、ていねいに感謝を伝える日。</h3>
                     <p>新しい人生をスタートする二人の誓い、繋がりにふさわしい優雅で上質な舞台を「STORY」ではご用意しております。最高のシーンで、両家のご両親、ご友人への感謝の気持ちを、共に新たな人生を歩む大切な人とお伝えし、長く、そして変わらない愛を二人で紡いでください。
@@ -67,210 +67,142 @@
                 </div><!--End .gal-desc-->
             </div>
             <div class="clearfix"></div>
-            <div class="col-md-6 pd-0">
+            <div class="col-md-6 pd-0 wow fadeInLeft">
                 <img src="<?php echo get_bloginfo('template_url') ?>/img/top_rollover_02.jpg" class="img-responsive" />
             </div>
-            <div class="col-md-6 pd-0">
+            <div class="col-md-6 pd-0 wow fadeInRightBig">
                 <div class="gal-desc">
                     <h3>美しい海の見える挙式チャペルであなたの華やかなセレモニーを演出</h3>
                     <p>パリやミラノ、ニューヨークからのインポートをはじめ国内の人気ブランドやオリジナルまでウェディングドレスやカラードレスを豊富にご用意致しております。私たちは、花嫁様の幸せはもちろん、結婚式に携わったすべての人が感嘆の声を上げる、ドレスを演出します。
                     </p>
                 </div>
-            </div>
+            </div>            
             <div class="clearfix"></div>
-            <div class="col-md-6 col-md-push-6">
+            <div class="col-md-6 col-md-push-6 pd-0 wow fadeInUpBig">
                 <img src="<?php echo get_bloginfo('template_url') ?>/img/top_rollover_05.jpg" class="img-responsive" />
             </div>
-            <div class="col-md-6 col-md-pull-6">
+            <div class="col-md-6 col-md-pull-6 pd-0 wow fadeInUp">
                 <div class="gal-desc">
                     <h3>最高の輝きをもたらす特別な一日、こだわった分だけ思い出深いものに</h3>
                     <p>結婚式は、あなたの情熱を籠めた分だけ美しい思い出として心に残ります。ただ、準備段階で、会場や装飾、料理など、想像以上に準備が多く、「こんなに大変とは思わなかった」と感じるケースもございます。「STORY」では、あなたと一心同体となって思いを共有し、一生に一度の素敵な結婚式をご提案します。
                     </p>
                 </div>
-            </div>
+            </div>            
         </div>
     </div>
 </div><!--End #section-gal-->
 <div id="section-news" class="post">    
     <div class="container">
-        <div class="row">        
+        <div class="row wow zoomIn">
             <h2 class="headline">ニュース</h2>
             <ul class="news-list">
-                <li class="col-xs-6">
-                    <img src="<?php echo get_bloginfo('template_url') ?>/img/news-01.jpg" class="pull-left" />
-                    <div class="post-desc">
-                        <time class="block"><i class="fa fa-clock-o" aria-hidden="true"></i> 04-01-2017</time>
-                        <a href="#">画像をはめ込むだけで簡単に思い出のアルバムが作れる「ギャラリーページ」を追加しま</a>
-                        <p>通常の投稿（ブログ記事）とSTORYの独自機能である「お知らせ」カスタム投稿タイプの他にも、WordPressには「固定ページ」という静的なページを作成する機能があります。
-
-                        </p>
-                    </div><!--End .post-desc-->
-                </li>
-                <li class="col-xs-6">
-                    <img src="<?php echo get_bloginfo('template_url') ?>/img/news-02.jpg" class="pull-left" />
-                    <div class="post-desc">
-                        <time class="block"><i class="fa fa-clock-o" aria-hidden="true"></i> 04-01-2017</time>
-                        <a href="#">画像をはめ込むだけで簡単に思い出のアルバムが作れる「ギャラリーページ」を追加しま</a>
-                        <p>通常の投稿（ブログ記事）とSTORYの独自機能である「お知らせ」カスタム投稿タイプの他にも、WordPressには「固定ページ」という静的なページを作成する機能があります。
-
-                        </p>
-                    </div><!--End .post-desc-->
-                </li>
-                <li class="col-xs-6">
-                    <img src="<?php echo get_bloginfo('template_url') ?>/img/news-03.jpg" class="pull-left" />
-                    <div class="post-desc">
-                        <time class="block"><i class="fa fa-clock-o" aria-hidden="true"></i> 04-01-2017</time>
-                        <a href="#">画像をはめ込むだけで簡単に思い出のアルバムが作れる「ギャラリーページ」を追加しま</a>
-                        <p>通常の投稿（ブログ記事）とSTORYの独自機能である「お知らせ」カスタム投稿タイプの他にも、WordPressには「固定ページ」という静的なページを作成する機能があります。
-
-                        </p>
-                    </div><!--End .post-desc-->
-                </li>
-                <li class="col-xs-6">
-                    <img src="<?php echo get_bloginfo('template_url') ?>/img/news-04.jpg" class="pull-left" />
-                    <div class="post-desc">
-                        <time class="block"><i class="fa fa-clock-o" aria-hidden="true"></i> 04-01-2017</time>
-                        <a href="#">画像をはめ込むだけで簡単に思い出のアルバムが作れる「ギャラリーページ」を追加しま</a>
-                        <p>通常の投稿（ブログ記事）とSTORYの独自機能である「お知らせ」カスタム投稿タイプの他にも、WordPressには「固定ページ」という静的なページを作成する機能があります。
-
-                        </p>
-                    </div><!--End .post-desc-->
-                </li>
+                <?php
+                $blog_args = array(
+                    'posts_per_page' => 4,
+                    'post_type' => 'blogs',
+                    'post_status' => 'publish'
+                );
+                $blog_query = new WP_Query($blog_args);
+                if ($blog_query->have_posts()) :
+                    while ($blog_query->have_posts()) : $blog_query->the_post();
+                        $blog_count = get_post_meta(get_the_ID(), 'tanaka_post_views_count', true);
+                        $blog_count = empty($blog_count) ? 0 : $blog_count;
+                        ?>
+                        <li class="col-md-6">
+                            <a href="<?php the_permalink() ?>" class="zoom-effect pull-left">
+                                <?php if (has_post_thumbnail()) : ?>                                    
+                                    <?php the_post_thumbnail('full', array('width' => '200')); ?>                                    
+                                <?php endif; ?>
+                            </a>
+                            <div class="post-desc">
+                                <a href="<?php the_permalink() ?>"><?php echo cut_title(get_the_title()) ?></a>
+                                <ul id="post-meta" class="list-inline">
+                                    <li><i class="fa fa-clock-o" aria-hidden="true"></i> <?php the_time('Y年m月d日'); ?></li>
+                                    <li><i class="fa fa-eye" aria-hidden="true"></i> <?php echo $blog_count ?></li>
+                                </ul>
+                            </div><!--End .post-desc-->
+                        </li>
+                    <?php
+                    endwhile;
+                endif;
+                wp_reset_postdata();
+                ?>            
             </ul>                       
         </div>
     </div>
 </div><!--End #section-news-->
+
 <div id="section-blog" class="post">    
     <div class="container">
-        <div class="row">
-            
-        </div>
-    </div>
-</div><!--End #section-blog-->
-<div id="section-seven">    
-    <div class="container">
-        <div class="row">
-            <h2 class="icon-top headline">ブログ</h2>
-            <ul class="list-unstyled hidden" id="blog">
-                <li class="clearfix">
-                    <a href="#" class="zoom-effect pull-left"><img src="<?php echo get_bloginfo('template_url') ?>/img/Fotolia_56159139_XS.jpg" /></a>
-                    <h3 class="title"><a href="#">歯のホワイトニングを行うことで得られる4つの効果</a></h3>
-                    <p class="blog-content">皆さんは人前で思いっきり笑えますか？
-                        歯が汚れているのを気にしたことはありませんか？
-                        黄色く汚い歯を見せて笑うより、白く輝く歯で思いっきり笑いたいですよね！
-                        今回は、歯に着色があることでどのようなマイナス面があるか3つに絞って説明したいと思います。
-                    </p>
-                    <ul id="post-meta" class="list-inline">
-                        <li><i class="fa fa-clock-o" aria-hidden="true"></i> 2017年1月19日</li>
-                        <li><i class="fa fa-eye" aria-hidden="true"></i> 1970</li>
-                    </ul>
-                </li>
-                <li class="clearfix">
-                    <a href="#" class="zoom-effect pull-left"><img src="<?php echo get_bloginfo('template_url') ?>/img/Fotolia_109030654_XS.jpg" /></a>
-                    <h3 class="title"><a href="#">歯科医院における自費診療と保険診療の違い</a></h3>
-                    <p class="blog-content">歯医者だけに限らず、内科や耳鼻科や皮膚科などに行くと、まず最初に「保険証のご提示をおねがいします」といわれますよね。
-                        しかし、保険の効かない自費診療もあるということはご存知でしょうか？
-                    </p>
-                    <ul id="post-meta" class="list-inline">
-                        <li><i class="fa fa-clock-o" aria-hidden="true"></i> 2017年1月19日</li>
-                        <li><i class="fa fa-eye" aria-hidden="true"></i> 1970</li>
-                    </ul>
-                </li>
-                <li class="clearfix">
-                    <a href="#" class="zoom-effect pull-left"><img src="<?php echo get_bloginfo('template_url') ?>/img/Fotolia_110287853_XS.jpg" /></a>
-                    <h3 class="title"><a href="#">ドライマウスの対策</a></h3>
-                    <p class="blog-content">唾液を分泌させるために、食事の際はよく噛むようにしましょう。
-                        普段柔らかい食べ物ばかり食べている人は、なるべく歯ごたえのあるものを食べるように心がけてみましょう。
-                    </p>
-                    <ul id="post-meta" class="list-inline">
-                        <li><i class="fa fa-clock-o" aria-hidden="true"></i> 2016年2月10日</li>
-                        <li><i class="fa fa-eye" aria-hidden="true"></i> 34210</li>
-                    </ul>
-                </li>
-            </ul><!--End #blog-->
-        </div>
-    </div>
-</div><!--End #section-seven-->
-<div id="section-six">
-    <h2 class="icon-top headline">挨拶</h2>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-4 col-sm-push-8">
-                <img src="<?php echo get_bloginfo('template_url') ?>/img/shutterstock_81834304.jpg" class="center-block" />
-            </div>
-            <div class="col-sm-8 col-sm-pull-4">
-                <p>
-                    この度は当院のホームページにお越しいただき、ありがとうございます。<br />
-
-                    最近では、このホームページと言われるものも世の中に無数にある時代となり、歯科医院のホームページと言えば、どんな業種よりも多く感じるの私だけでしょうか。<br />
-
-                    そんな、数多くある歯科医院のホームページを見て、今後かかりつけになるかもしれない歯科医院を探しているということを来院いただいた患者様からお聞きしたことがございました。<br />
-
-                    そこで、『この歯医者にいってみよう、この歯医者だったら良くしてくれるだろう』というけ眼手になるところは、ホームページでどこを見て決めているんですか？と尋ねてみたところ、『結局は先生じゃないんですか』と言われました。
-
-                </p>
-            </div>            
-        </div>
-    </div>
-</div><!--End #section-six-->
-<div id="section-third" class="text-center">
-    <div class="container">
-        <div class="row">
-            <h2 class="headline icon-top">診療のご案内</h2>
-            <?php
-            $args = array(
-                'post_type' => 'page',
-                'post_status' => 'publish',
-                'hierarchical' => 1,
-                'meta_key' => 'is_homepage',
-                'meta_value' => 1,
-                'posts_per_page' => 6
-            );
-            $query_toppage = new WP_Query($args);
-            if ($query_toppage->have_posts()) :
-                ?>
-                <ul id="cat-list" class="list-unstyled">
-                    <?php while ($query_toppage->have_posts()): $query_toppage->the_post(); ?>
-                        <?php
-                        $title_via_img = get_post_meta(get_the_ID(), 'title_via_img', true);
+        <div class="row wow fadeInUpBig">
+            <h2 class="headline">ブログ</h2>
+            <ul class="list-unstyled list-inline filter-type text-center" id="blog-type">
+                <li class="filtr filtr-active" data-filter="all">All</li>
+                <?php
+                $cat_args = array(
+                    'orderby' => 'id',
+                    'hide_empty' => false,
+                );
+                $categories = get_categories($cat_args); //echo '<pre>'; print_r($categories);
+                if (!empty($categories)) {
+                    foreach ($categories as $cat) {
+                        if ($cat->category_count == 0) {
+                            continue;
+                        }
                         ?>
-                        <li class="col-md-4">
-                            <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-                                <div class="shinryo-box items">
-                                    <h3>
-                                        <?php if (empty($title_via_img)): ?>
-                                            <?php the_title() ?>
-                                        <?php else: ?>
-                                            <img src="<?php echo $title_via_img ?>" title="<?php the_title() ?>" alt="<?php the_title() ?>" />
-                                        <?php endif; ?>
-                                    </h3>
-                                    <div class="post-image">
-                                        <figure>
-                                            <?php the_post_thumbnail('large', array('class' => 'img-responsive')); ?>
-                                        </figure>
-                                        <p>Read More</p>
-                                    </div>
-                                </div><!--End .shinryo-box-->
-                            </a>
-                        </li>
-                    <?php endwhile; ?>
-                </ul>
-            <?php endif; ?>
-            <?php wp_reset_postdata(); ?>                            
-            </ul><!--End #cat-list-->
+                        <li class="filtr" data-filter="<?php echo $cat->term_id ?>"><?php echo $cat->name; ?></li>
+                        <?php
+                    }
+                }
+                ?>
+            </ul>
+
+            <div class="filtr-container clearfix">
+                <?php
+                global $post;
+                $post_args = array('posts_per_page' => 12, 'orderby' => 'rand');
+                $query_posts = get_posts($post_args);
+                foreach ($query_posts as $post) :
+                    setup_postdata($post);
+                    $cat_arr = get_the_category($post->ID);//echo '<pre>'; print_r($cat_arr);
+                    if (count($cat_arr) > 1):
+                        foreach ($cat_arr as $cat_val):
+                            $catIDs[] = $cat_val->cat_ID;
+                        endforeach;
+                            $catID = implode(', ', $catIDs);//echo $catID.'HOATONG';
+                            unset($catIDs);
+                    else:
+                        $catID = $cat_arr[0]->cat_ID;
+                    endif;
+//                    $catID_str = is_array($catIDs) ? implode(',', $catIDs) : $catID;
+
+                    $count = get_post_meta(get_the_ID(), 'tanaka_post_views_count', true);
+                    $count = empty($count) ? 0 : $count;
+                    ?>
+                    <div class="col-xs-6 col-sm-4 col-md-3 filtr-item" data-category="<?php echo $catID ?>">
+                        <div class="post-image">                            
+                            <figure>
+                                <?php if (has_post_thumbnail()) : ?>                                    
+                                    <?php the_post_thumbnail('full', array('class' => 'img-responsive')); ?>                                    
+    <?php endif; ?>
+                            </figure>
+                            <p><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">詳しく見る</a></p>
+                        </div>
+                        <div class="item-position"><?php echo $count ?> <i class="fa fa-eye" aria-hidden="true"></i></div>
+                        <div class="item-desc"><?php echo cut_title(get_the_title()) ?></div>
+                    </div>
+                    <?php
+                endforeach;
+                wp_reset_postdata();
+                ?>                
+            </div>
+            <div class="clearfix"></div>
+            <div class="center-block viewmore">
+                <a href="#">ブログ一覧 <i class="fa fa-angle-double-down" aria-hidden="true"></i></a>
+            </div>
         </div>
     </div>
-</div><!--End #section-third-->
-<div id="section-eight">
-    <div class="container">
-
-    </div>
-</div><!--End #section-eight-->
-
-
-<?php // get_template_part('loop'); ?>
-
-<?php // get_template_part('pagination'); ?>            
-
-<?php get_footer(); ?>
+</div><!--End #section-blog-->        
+<?php
+get_footer();
 

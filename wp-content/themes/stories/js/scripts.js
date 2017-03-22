@@ -24,7 +24,14 @@ jQuery(document).ready(function ($) {
             }
     );
 
-    jQuery('#main-slider').bxSlider({
+    $('.items').matchHeight();
+
+    //Filtering section nav
+    $('#blog-type li').click(function () {
+        $('.filter-type .filtr').removeClass('filtr-active');
+        $(this).addClass('filtr-active');
+    });
+    $('#main-slider').bxSlider({
         auto: true,
         speed: 1000,
         controls: false,
@@ -35,19 +42,43 @@ jQuery(document).ready(function ($) {
         startSlide: 0
     });
 
-    $('.items').matchHeight();
-
-    $(document).click(function (e) {
-        target = e.target;
-        if (($(".vce-zoomed").length == true) && !$(target).is('.search-input')) {
-            $('#navigation').find('li').removeClass("vce-zoomed");
-        }
+    $('#list-gal').bxSlider({
+        slideWidth: 210,
+        minSlides: 3,
+        maxSlides: 6,
+        slideMargin: 0,
+        auto: true,
+        speed: 1000,
+        controls: true,
+        pause: 10000,
+        captions: false,
+        pager: false,
+        moveSlides: true
     });
-    $('body').on("click", ".search_header i", function (e) {
-        $(this).toggleClass('vce-item-selected');
-        $(this).parent().parent().toggleClass('vce-zoomed');
-        $(this).parent().next().find('.search-input').focus();
-        e.stopPropagation();
+
+    new WOW().init({
+        mobile: false
     });
 
+    var filteriblog = $('.filtr-container').filterizr();
+
+    $('.drawer').drawer();
+
+    var isSearchHover = false;
+    $(document).click(function () {
+        if (!isSearchHover)
+            $('#search-icon form, #search-icon-desk form').fadeOut(250);
+    });
+    $(document).on('click', '#search-icon-icon, .btnsearch', function () {
+        var $$ = $(this).parent();
+        $$.find('form').fadeToggle(250);
+        setTimeout(function () {
+            $$.find('input[name=s]').focus();
+        }, 300);
+    });
+    $(document).on('mouseenter', '#search-icon, #search-icon-desk', function () {
+        isSearchHover = true;
+    }).on('mouseleave', '#search-icon, #search-icon-desk', function () {
+        isSearchHover = false;
+    });
 });

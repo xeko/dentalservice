@@ -1,0 +1,34 @@
+/* 
+    Created on : Mar 2, 2017, 5:14:24 PM
+    Author     : miyashiroriona1
+*/
+ul.check li:before {
+    background: #fff;
+    border: 2px solid #888181;
+    content: "";
+    display: block;
+    height: 16px;
+    left: 0;
+    position: absolute;
+    top: 8px;
+    width: 16px;
+}
+ul.check li:after {
+    border-bottom: 2px solid #47aeb2;
+    border-left: 2px solid #47aeb2;
+    content: "";
+    display: block;
+    height: 6px;
+    left: 0.2em;
+    position: absolute;
+    top: 0.7em;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    width: 10px;
+}
+ul.check li {
+    margin-bottom: 10px;
+    padding-left: 2em;
+    position: relative;
+}
+

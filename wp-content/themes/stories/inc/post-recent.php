@@ -34,7 +34,7 @@ class WP_Widget_Post_Last extends WP_Widget {
             
             echo '</li> ';
 	}
-	echo '</ul></box>';
+	echo '</ul></div>';
     
     echo $after_widget;
   }
