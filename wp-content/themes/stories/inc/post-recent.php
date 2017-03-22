@@ -14,7 +14,7 @@ class WP_Widget_Post_Last extends WP_Widget {
         parent::__construct($id_base, $name, $widget_options);
     }
    
-    // Display Widget
+    // Display Widget 
     function widget($args, $instance) {
         extract($args);
         $title = apply_filters('widget_title', esc_attr($instance['title']));
