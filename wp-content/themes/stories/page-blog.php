@@ -69,4 +69,4 @@
 		</div><!--End .container-->
 	</section><!--End #wrap-body-->
 	<!-- /section -->
-<?php get_footer(); ?>
+<?php get_footer();

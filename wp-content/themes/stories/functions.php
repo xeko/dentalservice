@@ -691,17 +691,20 @@ add_shortcode('latest_stickies', 'hoatv_latest_sticky');
 
 function get_instagram($atts = "", $content = "") {
     $url = "https://api.instagram.com/v1/users/3104840534/media/recent/?access_token=3104840534.1677ed0.e452372cfe244a5e94f44a3ea8314e8e";
-    $content = @file_get_contents($url);
-    $data = json_decode($content, true);
+//    $content = @file_get_contents($url);
+    $content = wp_remote_get($url);
+    $data = json_decode($content['body']);
+    $data = $data->data;
     ?>
     <h2 class="headline">Gallery</h2>
     <ul id="list-gal" class="bxslider">
         <?php
-        if (!empty($data['data'])):
-            foreach ($data['data'] as $key => $value) {
-                $img_link = $value['images']['standard_resolution']['url'];
+        if (!empty($data)):
+            foreach ($data as $value) {
+//                $img_link = $value->images->standard_resolution->url;
+                $img_link = $value->images->low_resolution->url;
                 ?>
-                <li><a href="<?php echo $value['link'] ?>" target="_blank"><img src="<?php echo $img_link; ?>" /></a></li>
+                <li><a href="<?php echo $value->link ?>" target="_blank"><img src="<?php echo $img_link; ?>" /></a></li>
             <?php } endif; ?>
     </ul><!--End list-gal-->                
 
