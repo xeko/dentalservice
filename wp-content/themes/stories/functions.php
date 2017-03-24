@@ -1,14 +1,16 @@
 <?php
 /*
  *  Author: TONGHOA | @hoatv
- *  URL: dentalservice.jp | @html5blank
+ *  URL: dentalservice.jp | @html5&css3
  *  Custom functions, support, custom post types and more.
  */
 
-const THEME_NAME = "shiba2";
+define('THEME_NAME', 'shiba2');
 
 require_once( 'inc/most-views.php' );
 require_once( 'inc/post-recent.php' );
+require_once( 'inc/add_shortcode.php' );
+require_once( 'inc/shortcode-tabs.php' );
 
 class My_Custom_Nav_Walker extends Walker_Nav_Menu {
 

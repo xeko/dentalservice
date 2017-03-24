@@ -3,11 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/Applications/XAMPP/htdocs/stories/wp-content/themes/stories/inc/add_shortcode.php</file>
+            <file>file:/Applications/XAMPP/htdocs/stories/wp-content/themes/stories/js/shortcode.js</file>
+            <file>file:/Applications/XAMPP/htdocs/stories/wp-content/themes/stories/inc/shortcode-tabs.php</file>
             <file>file:/Applications/XAMPP/htdocs/stories/wp-content/themes/stories/functions.php</file>
             <file>file:/Applications/XAMPP/htdocs/stories/wp-content/themes/stories/inc/post-recent.php</file>
+            <file>file:/Applications/XAMPP/htdocs/stories/wp-content/plugins/alka-facebook-master/alka-facebook.php</file>
             <file>file:/Applications/XAMPP/htdocs/stories/wp-content/themes/stories/home.php</file>
             <file>file:/Applications/XAMPP/htdocs/stories/wp-content/themes/stories/page-facebook.php</file>
             <file>file:/Applications/XAMPP/htdocs/stories/wp-content/themes/stories/page-login.php</file>
+            <file>file:/Applications/XAMPP/htdocs/stories/wp-content/themes/stories/page-blog.php</file>
         </group>
     </open-files>
 </project-private>
