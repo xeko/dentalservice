@@ -11,10 +11,6 @@ jQuery(document).ready(function ($) {
         $("html, body").animate({scrollTop: 0}, 800);
     });
 
-    $(window).load(function () {
-        $('.preloader').fadeOut(1000); // set duration in brackets
-    });
-
     $('.dropdown').hover(
             function () {
                 $(this).children('.dropdown-menu').slideDown(200);

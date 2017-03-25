@@ -32,9 +32,9 @@
                 }(document, 'script', 'facebook-jssdk'));</script>
         <?php endif; ?>
         <div id="back2totop"></div>
-        <div class='preloader'>
+<!--        <div class='preloader'>
             <div class="loading"></div>
-        </div>
+        </div>-->
         <div id="wrap-content">
             <header class="drawer-navbar drawer-navbar--fixed" role="banner">
                 <div class="container">

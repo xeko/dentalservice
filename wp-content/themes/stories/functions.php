@@ -471,72 +471,72 @@ function breadcrumb($divOption = array("id" => "breadcrumb", "class" => "breadcr
             $tagAttribute .= sprintf(' %s="%s"', $attrName, $attrValue);
         }
         //$str.= '<div' . $tagAttribute . '>';
-        $str.= '<ul class="breadcrumb breadcrumb-arrow">';
-        $str.= '<li><a href="' . home_url() . '/"><i class="fa fa-home"></i><span itemprop="title"></span></a></li>';
+        $str .= '<ul class="breadcrumb breadcrumb-arrow">';
+        $str .= '<li><a href="' . home_url() . '/"><i class="fa fa-home"></i><span itemprop="title"></span></a></li>';
 
         if (is_category()) {
             $cat = get_queried_object();
             if ($cat->parent != 0) {
                 $ancestors = array_reverse(get_ancestors($cat->cat_ID, 'category'));
                 foreach ($ancestors as $ancestor) {
-                    $str.=' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li><a href="' . get_category_link($ancestor) . '" itemprop="url"><span itemprop="title">' . get_cat_name($ancestor) . '</span></a></li>';
+                    $str .= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li><a href="' . get_category_link($ancestor) . '" itemprop="url"><span itemprop="title">' . get_cat_name($ancestor) . '</span></a></li>';
                 }
             }
-            $str.=' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li><span itemprop="title">' . $cat->name . '</span></li>';
+            $str .= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li><span itemprop="title">' . $cat->name . '</span></li>';
         } elseif (is_single()) {
 
-            if ( get_post_type() != 'post' ) {
-                    $post_type = get_post_type_object(get_post_type());
-                    $str.=' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li><a href="' . get_post_type_archive_link(get_post_type()) . '"><span itemprop="title">' . $post_type->name . '</span></a> </li>';
-                    $str.= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li>' . $post->post_title . '</li>';
-                } else {
-                    $categories = get_the_category($post->ID);
-                    $cat = $categories[0];
-                    if ($cat->parent != 0) {
-                        $ancestors = array_reverse(get_ancestors($cat->cat_ID, 'category'));
-                        foreach ($ancestors as $ancestor) {
-                            $str.='<li><a href="' . get_category_link($ancestor) . '"><span itemprop="title">' . get_cat_name($ancestor) . '</span></a></li>';
-                        }
+            if (get_post_type() != 'post') {
+                $post_type = get_post_type_object(get_post_type());
+                $str .= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li><a href="' . get_post_type_archive_link(get_post_type()) . '"><span itemprop="title">' . $post_type->name . '</span></a> </li>';
+                $str .= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li>' . $post->post_title . '</li>';
+            } else {
+                $categories = get_the_category($post->ID);
+                $cat = $categories[0];
+                if ($cat->parent != 0) {
+                    $ancestors = array_reverse(get_ancestors($cat->cat_ID, 'category'));
+                    foreach ($ancestors as $ancestor) {
+                        $str .= '<li><a href="' . get_category_link($ancestor) . '"><span itemprop="title">' . get_cat_name($ancestor) . '</span></a></li>';
                     }
-                    $str.=' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li><a href="' . get_category_link($cat->term_id) . '" itemprop="url"><span itemprop="title">' . $cat->cat_name . '</span></a></li>';
-                    $str.= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li>' . $post->post_title . '</li>';
-                }                        
+                }
+                $str .= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li><a href="' . get_category_link($cat->term_id) . '" itemprop="url"><span itemprop="title">' . $cat->cat_name . '</span></a></li>';
+                $str .= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li>' . $post->post_title . '</li>';
+            }
         } elseif (is_page()) {
             if ($post->post_parent != 0) {
                 $ancestors = array_reverse(get_post_ancestors($post->ID));
                 foreach ($ancestors as $ancestor) {
-                    $str.=' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li><a href="' . get_permalink($ancestor) . '" itemprop="url"><span itemprop="title">' . get_the_title($ancestor) . '</span></a></li>';
+                    $str .= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li><a href="' . get_permalink($ancestor) . '" itemprop="url"><span itemprop="title">' . get_the_title($ancestor) . '</span></a></li>';
                 }
             }
-            $str.= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li><span itemprop="title">' . $post->post_title . '</span></li>';
+            $str .= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li><span itemprop="title">' . $post->post_title . '</span></li>';
         } elseif (is_date()) {
             if (is_year()) {
-                $str.= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li>' . get_the_time('Y') . '年</li>';
+                $str .= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li>' . get_the_time('Y') . '年</li>';
             } else if (is_month()) {
-                $str.= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li><a href="' . get_year_link(get_the_time('Y')) . '">' . get_the_time('Y') . '年</a></li>';
-                $str.= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li>' . get_the_time('n') . '月</li>';
+                $str .= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li><a href="' . get_year_link(get_the_time('Y')) . '">' . get_the_time('Y') . '年</a></li>';
+                $str .= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li>' . get_the_time('n') . '月</li>';
             } else if (is_day()) {
-                $str.= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li><a href="' . get_year_link(get_the_time('Y')) . '">' . get_the_time('Y') . '年</a></li>';
-                $str.= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li><a href="' . get_month_link(get_the_time('Y'), get_the_time('m')) . '">' . get_the_time('n') . '月</a></li>';
-                $str.= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li>' . get_the_time('j') . '日</li>';
+                $str .= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li><a href="' . get_year_link(get_the_time('Y')) . '">' . get_the_time('Y') . '年</a></li>';
+                $str .= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li><a href="' . get_month_link(get_the_time('Y'), get_the_time('m')) . '">' . get_the_time('n') . '月</a></li>';
+                $str .= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li>' . get_the_time('j') . '日</li>';
             }
             if (is_year() && is_month() && is_day()) {
-                $str.= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li>' . wp_title('', false) . '</li>';
+                $str .= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li>' . wp_title('', false) . '</li>';
             }
         } elseif (is_search()) {
-            $str.=' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li><span itemprop="title">「' . get_search_query() . '」で検索した結果</span></li>';
+            $str .= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li><span itemprop="title">「' . get_search_query() . '」で検索した結果</span></li>';
         } elseif (is_author()) {
-            $str .=' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li><span itemprop="title">投稿者 : ' . get_the_author_meta('display_name', get_query_var('author')) . '</span></li>';
+            $str .= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li><span itemprop="title">投稿者 : ' . get_the_author_meta('display_name', get_query_var('author')) . '</span></li>';
         } elseif (is_tag()) {
-            $str.=' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li><span itemprop="title">タグ : ' . single_tag_title('', false) . '</span></li>';
+            $str .= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li><span itemprop="title">タグ : ' . single_tag_title('', false) . '</span></li>';
         } elseif (is_attachment()) {
-            $str.= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li><span itemprop="title">' . $post->post_title . '</span></li>';
+            $str .= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li><span itemprop="title">' . $post->post_title . '</span></li>';
         } elseif (is_404()) {
-            $str.=' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li>ページがみつかりません。</li>';
+            $str .= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li>ページがみつかりません。</li>';
         } else {
-            $str.=' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li><span itemprop="title">' . wp_title('', false) . '</span></li>';
+            $str .= ' <i class="fa fa-angle-double-right" aria-hidden="true"></i> <li><span itemprop="title">' . wp_title('', false) . '</span></li>';
         }
-        $str.='</ul>';
+        $str .= '</ul>';
     }
     echo $str;
 }
@@ -544,18 +544,18 @@ function breadcrumb($divOption = array("id" => "breadcrumb", "class" => "breadcr
 function related_post() {
     global $post;
     $max_articles = 8;  // How many articles to display
-    
+
     echo '<div id="related"><h2>関連記事</h2>';
 
-    if($post->post_type == "post"){
+    if ($post->post_type == "post") {
 
         echo '<ul class="list-unstyled">';
-        
+
         $elms = array();
         $tag_related_posts = array();
         $cat_related_posts = array();
         $cnt = 0;
-        
+
         $article_tags = get_the_tags();
         $tags_string = '';
         if ($article_tags) {
@@ -563,28 +563,29 @@ function related_post() {
                 $tags_string .= $article_tag->slug . ',';
             }
         }
-        if(!empty($tags_string)) : 
-            $tag_related_posts = get_posts('exclude=' . $post->ID . '&numberposts=' . $max_articles . '&tag=' . $tags_string);        
+        if (!empty($tags_string)) :
+            $tag_related_posts = get_posts('exclude=' . $post->ID . '&numberposts=' . $max_articles . '&tag=' . $tags_string);
         endif;
 
         // Only if there's not enough tag related articles,
         // we add some from the same category    
-            
+
         $article_categories = get_the_category($post->ID);
         $category_string = '';
-        foreach($article_categories as $category) { 
+        foreach ($article_categories as $category) {
             $category_string .= $category->cat_ID . ',';
         }
-        
+
         $cat_related_posts = get_posts('exclude=' . $post->ID . '&numberposts=' . $max_articles . '&category=' . $category_string);
 
-        if(!empty($tag_related_posts) || !empty($cat_related_posts))
+        if (!empty($tag_related_posts) || !empty($cat_related_posts))
             $elms = array_merge($tag_related_posts, $cat_related_posts);
-            
+
         if ($elms) {
             foreach ($elms as $related_post) {
-                $cnt++; 
-                if ($cnt > $max_articles) break;
+                $cnt++;
+                if ($cnt > $max_articles)
+                    break;
 
                 $count = get_post_meta($related_post->ID, 'tanaka_post_views_count', true);
                 $count = empty($count) ? 0 : $count;
@@ -593,86 +594,85 @@ function related_post() {
                 $image_id = get_post_thumbnail_id($related_post->ID);
                 $image_url = wp_get_attachment_image_src($image_id, 'medium', true);
                 ?>
-                    <a href="<?php echo get_permalink($related_post->ID) ?>" rel="bookmark" title="<?php the_title_attribute(array('post' => $related_post->ID)); ?>"><img src="<?php echo $image_url[0]; ?>" alt="" class=""/>
+                <a href="<?php echo get_permalink($related_post->ID) ?>" rel="bookmark" title="<?php the_title_attribute(array('post' => $related_post->ID)); ?>"><img src="<?php echo $image_url[0]; ?>" alt="" class=""/>
                     <ul class="list-inline list-unstyled dateview">
                         <li><time class="meta-item"><i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo get_the_time('Y年m月d日', $post->ID); ?></time></li>
-                        <li><?php echo $count?> <i class="fa fa-eye" aria-hidden="true"></i></li>
+                        <li><?php echo $count ?> <i class="fa fa-eye" aria-hidden="true"></i></li>
                     </ul>                
-                <?php
-                echo '<p>'.mb_substr($related_post->post_title, 0, 16) . '</p></a></li>';
+                    <?php
+                    echo '<p>' . mb_substr($related_post->post_title, 0, 16) . '</p></a></li>';
+                }
             }
-        }
-        
         } else { //is custom post type
             related_by_custom_post_type();
         }
 
-    echo '</ul></div>';
-}
-
-function get_tags_custom($args, $content) {
-    $tags = get_tags();
-    if (!empty($tags)):
-        $html = '<ul class="list-inline list-unstyled">';
-        foreach ($tags as $tag) {
-            $tag_link = get_tag_link($tag->term_id);
-
-            $html .= "<li><i class='fa fa-tags' aria-hidden='true'></i><a href='{$tag_link}' title='{$tag->name} Tag' class='{$tag->slug}'>";
-            $html .= "{$tag->name}</a></li>";
-        }
-        $html .= '</ul>';
-    else:
-        $html .= '無し';
-    endif;
-    return $html;
-}
-
-add_shortcode('all_tags', 'get_tags_custom');
-
-function tags_by_post($ID) {
-    $tags = wp_get_post_tags($ID);
-    $html = "<i class='fa fa-tags' aria-hidden='true'></i> ";
-    foreach ($tags as $k => $tag) {
-        $tag_link = get_tag_link($tag->term_id);
-        $comma = ($k == count($tags) - 1) ? '' : ', ';
-
-        $html .= "<a href='{$tag_link}' title='{$tag->name} Tag' class='{$tag->slug}'>";
-        $html .= "{$tag->name}</a>" . $comma;
+        echo '</ul></div>';
     }
-    return $html;
-}
 
-function hoatv_search_form($form) {
-    $form = '<form role="search" method="get" id="searchform" class="searchform" action="' . home_url('/') . '" >    
+    function get_tags_custom($args, $content) {
+        $tags = get_tags();
+        if (!empty($tags)):
+            $html = '<ul class="list-inline list-unstyled">';
+            foreach ($tags as $tag) {
+                $tag_link = get_tag_link($tag->term_id);
+
+                $html .= "<li><i class='fa fa-tags' aria-hidden='true'></i><a href='{$tag_link}' title='{$tag->name} Tag' class='{$tag->slug}'>";
+                $html .= "{$tag->name}</a></li>";
+            }
+            $html .= '</ul>';
+        else:
+            $html .= '無し';
+        endif;
+        return $html;
+    }
+
+    add_shortcode('all_tags', 'get_tags_custom');
+
+    function tags_by_post($ID) {
+        $tags = wp_get_post_tags($ID);
+        $html = "<i class='fa fa-tags' aria-hidden='true'></i> ";
+        foreach ($tags as $k => $tag) {
+            $tag_link = get_tag_link($tag->term_id);
+            $comma = ($k == count($tags) - 1) ? '' : ', ';
+
+            $html .= "<a href='{$tag_link}' title='{$tag->name} Tag' class='{$tag->slug}'>";
+            $html .= "{$tag->name}</a>" . $comma;
+        }
+        return $html;
+    }
+
+    function hoatv_search_form($form) {
+        $form = '<form role="search" method="get" id="searchform" class="searchform" action="' . home_url('/') . '" >    
       <input type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="検索" />
     <button type="submit" id="searchsubmit"><i class="fa fa-search" aria-hidden="true"></i></button>
     </form>';
 
-    return $form;
-}
+        return $form;
+    }
 
-add_filter('get_search_form', 'hoatv_search_form');
+    add_filter('get_search_form', 'hoatv_search_form');
 
-function hoatv_latest_sticky() {
+    function hoatv_latest_sticky() {
 
-    /* Get all sticky posts */
-    $sticky = get_option('sticky_posts');
+        /* Get all sticky posts */
+        $sticky = get_option('sticky_posts');
 
-    /* Sort the stickies with the newest ones at the top */
-    rsort($sticky);
+        /* Sort the stickies with the newest ones at the top */
+        rsort($sticky);
 
-    /* Get the 5 newest stickies */
-    $sticky = array_slice($sticky, 0, 5);
+        /* Get the 5 newest stickies */
+        $sticky = array_slice($sticky, 0, 5);
 
-    $the_query = new WP_Query(array('post__in' => $sticky, 'ignore_sticky_posts' => 1));
+        $the_query = new WP_Query(array('post__in' => $sticky, 'ignore_sticky_posts' => 1));
 
-    if ($the_query->have_posts()) {
-        $return .= '<ul id="top-view" class="list-unstyled">';
-        while ($the_query->have_posts()) {
-            $the_query->the_post();
-            $count = get_post_meta(get_the_ID(), 'tanaka_post_views_count', true);
-            $count = empty($count) ? 0 : $count;
-            $return .= '<li>
+        if ($the_query->have_posts()) {
+            $return .= '<ul id="top-view" class="list-unstyled">';
+            while ($the_query->have_posts()) {
+                $the_query->the_post();
+                $count = get_post_meta(get_the_ID(), 'tanaka_post_views_count', true);
+                $count = empty($count) ? 0 : $count;
+                $return .= '<li>
             <a href="' . get_permalink(get_the_ID()) . '" title="' . get_the_title() . '" class="zoom-effect">
             <figure class="eyecatch">' . get_the_post_thumbnail(get_the_ID(), array(80, 80), array('class' => 'pull-left')) . '</figure>' . get_the_title() . '
             <ul id="post-meta" class="list-inline list-unstyled">
@@ -680,198 +680,340 @@ function hoatv_latest_sticky() {
                         <li><i class="fa fa-eye" aria-hidden="true"></i> ' . $count . ' views</li>
                     </ul>
             ';
-            $return .= '</a></li>';
+                $return .= '</a></li>';
+            }
+            $return .= '</ul>';
         }
-        $return .= '</ul>';
+        wp_reset_postdata();
+
+        return $return;
     }
-    wp_reset_postdata();
 
-    return $return;
-}
+    add_shortcode('latest_stickies', 'hoatv_latest_sticky');
 
-add_shortcode('latest_stickies', 'hoatv_latest_sticky');
-
-function get_instagram($atts = "", $content = "") {
-    $url = "https://api.instagram.com/v1/users/3104840534/media/recent/?access_token=3104840534.1677ed0.e452372cfe244a5e94f44a3ea8314e8e";
+    function get_instagram($atts = "", $content = "") {
+        $url = "https://api.instagram.com/v1/users/3104840534/media/recent/?access_token=3104840534.1677ed0.e452372cfe244a5e94f44a3ea8314e8e";
 //    $content = @file_get_contents($url);
-    $content = wp_remote_get($url);
-    $data = json_decode($content['body']);
-    $data = $data->data;
-    ?>
-    <h2 class="headline">Gallery</h2>
-    <ul id="list-gal" class="bxslider">
+        $content = wp_remote_get($url);
+        $data = json_decode($content['body']);
+        $data = $data->data;
+        ?>
+        <h2 class="headline">Gallery</h2>
+        <ul id="list-gal" class="bxslider">
+            <?php
+            if (!empty($data)):
+                foreach ($data as $value) {
+                    $img_link = $value->images->low_resolution->url;
+                    ?>
+                    <li><a href="<?php echo $value->link ?>" target="_blank"><img src="<?php echo $img_link; ?>" /></a></li>
+                <?php } endif; ?>
+        </ul><!--End list-gal-->                
+
         <?php
-        if (!empty($data)):
-            foreach ($data as $value) {
-//                $img_link = $value->images->standard_resolution->url;
-                $img_link = $value->images->low_resolution->url;
-                ?>
-                <li><a href="<?php echo $value->link ?>" target="_blank"><img src="<?php echo $img_link; ?>" /></a></li>
-            <?php } endif; ?>
-    </ul><!--End list-gal-->                
+    }
 
-    <?php
-}
-
-function add_search_to_menu($items, $args) {
-    if ('header-menu' === $args->theme_location) {
-        $items .= '<li class="search-header-wrap hidden-xs hidden-sm">';
-        $items .= '<a id="search-icon-desk">'
-                . '<div class="btnsearch"><i class="fa fa-search" aria-hidden="true"></i></div>';
-        $items .= '<form class="search-header searchform" action="' . home_url('/') . '">
+    function add_search_to_menu($items, $args) {
+        if ('header-menu' === $args->theme_location) {
+            $items .= '<li class="search-header-wrap hidden-xs hidden-sm">';
+            $items .= '<a id="search-icon-desk">'
+                    . '<div class="btnsearch"><i class="fa fa-search" aria-hidden="true"></i></div>';
+            $items .= '<form class="search-header searchform" action="' . home_url('/') . '">
                 <input name="s" class="search-input" type="text" value="' . get_search_query() . '" />
               </form>';
-        $items .= '</a></li>';
+            $items .= '</a></li>';
+        }
+        return $items;
     }
-    return $items;
-}
 
-add_filter('wp_nav_menu_items', 'add_search_to_menu', 10, 2);
+    add_filter('wp_nav_menu_items', 'add_search_to_menu', 10, 2);
 
 //Disable plugin update notification for specific plugin in WordPress
-function filter_plugin_updates() {
-    // Replace the plugin folder name and main file name with your plugin's folder and file name
-    $value = new StdClass;
-    unset($value->response['akismet/akismet.php']);
-    return $value;
-}
-
-add_filter('site_transient_update_plugins', 'filter_plugin_updates');
-
-function cut_title($text, $len = 30) { //Hàm cắt tiêu đề Unicode
-    mb_internal_encoding('UTF-8');
-    if ((mb_strlen($text, 'UTF-8') > $len))
-        $text = mb_substr($text, 0, $len, 'UTF-8') . "...";
-    return $text;
-}
-
-function cut_str($text, $limit = 25) {
-    $more = (mb_strlen($text) > $limit) ? TRUE : FALSE;
-    $text = mb_substr($text, 0, $limit, 'UTF-8');
-    return array($text, $more);
-}
-function pagination( $args = array() ) {
-    
-    $defaults = array(
-        'range'           => 4,
-        'custom_query'    => FALSE,
-        'previous_string' => __( 'Previous', THEME_NAME ),
-        'next_string'     => __( 'Next', THEME_NAME ),
-        'before_output'   => '<div class="clearfix"></div><div class="post-nav"><ul class="pagination pagination-sm">',
-        'after_output'    => '</ul></div>'
-    );
-    
-    $args = wp_parse_args( 
-        $args, 
-        apply_filters( 'pagination_defaults', $defaults )
-    );
-    
-    $args['range'] = (int) $args['range'] - 1;
-    if ( !$args['custom_query'] )
-        $args['custom_query'] = @$GLOBALS['wp_query'];
-    $count = (int) $args['custom_query']->max_num_pages;
-    $page  = intval( get_query_var( 'paged' ) );
-    $ceil  = ceil( $args['range'] / 2 );
-    
-    if ( $count <= 1 )
-        return FALSE;
-    
-    if ( !$page )
-        $page = 1;
-    
-    if ( $count > $args['range'] ) {
-        if ( $page <= $args['range'] ) {
-            $min = 1;
-            $max = $args['range'] + 1;
-        } elseif ( $page >= ($count - $ceil) ) {
-            $min = $count - $args['range'];
-            $max = $count;
-        } elseif ( $page >= $args['range'] && $page < ($count - $ceil) ) {
-            $min = $page - $ceil;
-            $max = $page + $ceil;
-        }
-    } else {
-        $min = 1;
-        $max = $count;
+    function filter_plugin_updates() {
+        // Replace the plugin folder name and main file name with your plugin's folder and file name
+        $value = new StdClass;
+        unset($value->response['akismet/akismet.php']);
+        return $value;
     }
-    
-    $echo = '';
-    $previous = intval($page) - 1;
-    $previous = esc_attr( get_pagenum_link($previous) );
-    
-    $firstpage = esc_attr( get_pagenum_link(1) );
-    if ( $firstpage && (1 != $page) )
-        $echo .= '<li class="previous"><a href="' . $firstpage . '">' . __( '前へ', THEME_NAME ) . '</a></li>';
-    if ( $previous && (1 != $page) )
-        $echo .= '<li><a href="' . $previous . '" title="' . __( '前へ', THEME_NAME) . '">' . $args['previous_string'] . '</a></li>';
-    
-    if ( !empty($min) && !empty($max) ) {
-        for( $i = $min; $i <= $max; $i++ ) {
-            if ($page == $i) {
-                $echo .= '<li class="active"><span class="active">' . str_pad( (int)$i, 2, '0', STR_PAD_LEFT ) . '</span></li>';
+
+    add_filter('site_transient_update_plugins', 'filter_plugin_updates');
+
+    function cut_title($text, $len = 30) { //Hàm cắt tiêu đề Unicode
+        mb_internal_encoding('UTF-8');
+        if ((mb_strlen($text, 'UTF-8') > $len))
+            $text = mb_substr($text, 0, $len, 'UTF-8') . "...";
+        return $text;
+    }
+
+    function cut_str($text, $limit = 25) {
+        $more = (mb_strlen($text) > $limit) ? TRUE : FALSE;
+        $text = mb_substr($text, 0, $limit, 'UTF-8');
+        return array($text, $more);
+    }
+
+    function pagination($args = array()) {
+
+        $defaults = array(
+            'range' => 4,
+            'custom_query' => FALSE,
+            'previous_string' => __('Previous', THEME_NAME),
+            'next_string' => __('Next', THEME_NAME),
+            'before_output' => '<div class="clearfix"></div><div class="post-nav"><ul class="pagination pagination-sm">',
+            'after_output' => '</ul></div>'
+        );
+
+        $args = wp_parse_args(
+                $args, apply_filters('pagination_defaults', $defaults)
+        );
+
+        $args['range'] = (int) $args['range'] - 1;
+        if (!$args['custom_query'])
+            $args['custom_query'] = @$GLOBALS['wp_query'];
+        $count = (int) $args['custom_query']->max_num_pages;
+        $page = intval(get_query_var('paged'));
+        $ceil = ceil($args['range'] / 2);
+
+        if ($count <= 1)
+            return FALSE;
+
+        if (!$page)
+            $page = 1;
+
+        if ($count > $args['range']) {
+            if ($page <= $args['range']) {
+                $min = 1;
+                $max = $args['range'] + 1;
+            } elseif ($page >= ($count - $ceil)) {
+                $min = $count - $args['range'];
+                $max = $count;
+            } elseif ($page >= $args['range'] && $page < ($count - $ceil)) {
+                $min = $page - $ceil;
+                $max = $page + $ceil;
+            }
+        } else {
+            $min = 1;
+            $max = $count;
+        }
+
+        $echo = '';
+        $previous = intval($page) - 1;
+        $previous = esc_attr(get_pagenum_link($previous));
+
+        $firstpage = esc_attr(get_pagenum_link(1));
+        if ($firstpage && (1 != $page))
+            $echo .= '<li class="previous"><a href="' . $firstpage . '">' . __('前へ', THEME_NAME) . '</a></li>';
+        if ($previous && (1 != $page))
+            $echo .= '<li><a href="' . $previous . '" title="' . __('前へ', THEME_NAME) . '">' . $args['previous_string'] . '</a></li>';
+
+        if (!empty($min) && !empty($max)) {
+            for ($i = $min; $i <= $max; $i++) {
+                if ($page == $i) {
+                    $echo .= '<li class="active"><span class="active">' . str_pad((int) $i, 2, '0', STR_PAD_LEFT) . '</span></li>';
+                } else {
+                    $echo .= sprintf('<li><a href="%s">%002d</a></li>', esc_attr(get_pagenum_link($i)), $i);
+                }
+            }
+        }
+
+        $next = intval($page) + 1;
+        $next = esc_attr(get_pagenum_link($next));
+        if ($next && ($count != $page))
+            $echo .= '<li><a href="' . $next . '" title="' . __('次へ', THEME_NAME) . '">' . $args['next_string'] . '</a></li>';
+
+        $lastpage = esc_attr(get_pagenum_link($count));
+        if ($lastpage) {
+            $echo .= '<li class="next"><a href="' . $lastpage . '">' . __('次へ', THEME_NAME) . '</a></li>';
+        }
+        if (isset($echo))
+            echo $args['before_output'] . $echo . $args['after_output'];
+    }
+
+    function customize_pagination($args) {
+
+        $args['previous_string'] = '«';
+        $args['next_string'] = '»';
+
+        return $args;
+    }
+
+    add_filter('pagination_defaults', 'customize_pagination');
+
+    function related_by_custom_post_type() {
+
+        global $post;
+
+        $args = array(
+            'post_type' => $post->post_type,
+            'post_status' => 'publish',
+            'posts_per_page' => 8,
+            'orderby' => 'date',
+            'order' => 'DESC',
+            'post__not_in' => array($post->ID),
+        );
+        $related_items = new WP_Query($args);
+
+        if ($related_items->have_posts()) :
+            echo '<ul class="list-unstyled" id="list-post">';
+            while ($related_items->have_posts()) : $related_items->the_post();
+                $count = get_post_meta(get_the_ID(), 'tanaka_post_views_count', true);
+                $count = empty($count) ? 0 : $count;
+                ?>
+                <li>
+                    <a href="<?php the_permalink(); ?>">
+                        <?php if (has_post_thumbnail()) : ?>                                    
+                            <?php the_post_thumbnail(array(200, ''), array('class' => 'pull-left')); ?>
+                        <?php endif; ?>
+                        <ul class="list-inline list-unstyled dateview">
+                            <li><time class="meta-item"><i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo get_the_time('Y年m月d日', get_the_ID()); ?></time></li>
+                            <li class="pull-right"><?php echo $count ?> <i class="fa fa-eye" aria-hidden="true"></i></li>
+                        </ul>
+                        <p><?php echo get_the_title() ?></p>
+                    </a>
+                </li>
+                <?php
+            endwhile;
+            echo '</ul>';
+        endif;
+        wp_reset_postdata();
+    }
+
+    function registration_process_hook() {
+        global $reg_errors;
+        $reg_errors = new WP_Error;
+
+        if (isset($_POST['adduser']) && isset($_POST['add-nonce']) && wp_verify_nonce($_POST['add-nonce'], 'add-user')) {
+
+            // die if the nonce fails
+            if (!wp_verify_nonce($_POST['add-nonce'], 'add-user')) {
+                wp_die('Can not process!!!!!');
             } else {
-                $echo .= sprintf( '<li><a href="%s">%002d</a></li>', esc_attr( get_pagenum_link($i) ), $i );
+                // sanitize user form input
+                global $username, $password, $email, $bio;
+                $username = sanitize_user($_POST['username']);
+                $password = esc_attr($_POST['pwd1']);
+                $re_pwd = esc_attr($_POST['pwd2']);
+                $email = sanitize_email($_POST['email']);
+                $bio = esc_textarea($_POST['bio']);
+
+                if (empty($username) || empty($password) || empty($email)) {
+                    $reg_errors->add('field', 'Required form field is missing');
+                }
+                if (4 > strlen($username)) {
+                    $reg_errors->add('username_length', 'Username too short. At least 4 characters is required');
+                }
+                if (username_exists($username))
+                    $reg_errors->add('user_name', 'Sorry, that username already exists!');
+                if (!validate_username($username)) {
+                    $reg_errors->add('username_invalid', 'Sorry, the username you entered is not valid');
+                }
+                if (5 > strlen($password)) {
+                    $reg_errors->add('password', 'Password length must be greater than 5');
+                }
+                if ($re_pwd != $password) {
+                    $reg_errors->add('password', 'Password does not match the confirm password.');
+                }
+                if (!is_email($email)) {
+                    $reg_errors->add('email_invalid', 'Email is not valid');
+                }
+                if (email_exists($email)) {
+                    $reg_errors->add('email', 'Email Already in use');
+                }
+
+                if (is_wp_error($reg_errors)) {
+
+                    foreach ($reg_errors->get_error_messages() as $error) {
+
+                        echo '<div>';
+                        echo '<strong>ERROR</strong>: ';
+                        echo $error . '<br/>';
+                        echo '</div>';
+                    }
+                }
+
+                if (1 > count($reg_errors->get_error_messages())) {
+                    $userdata = array(
+                        'user_login' => $username,
+                        'user_email' => $email,
+                        'user_pass' => $password,
+                        'description' => $bio,
+                    );
+                    $user = wp_insert_user($userdata);
+
+                    wp_redirect(get_site_url() . '/wp-login.php');
+                    exit;
+                }
             }
         }
     }
-    
-    $next = intval($page) + 1;
-    $next = esc_attr( get_pagenum_link($next) );
-    if ($next && ($count != $page) )
-        $echo .= '<li><a href="' . $next . '" title="' . __( '次へ', THEME_NAME) . '">' . $args['next_string'] . '</a></li>';
-    
-    $lastpage = esc_attr( get_pagenum_link($count) );
-    if ( $lastpage ) {
-        $echo .= '<li class="next"><a href="' . $lastpage . '">' . __( '次へ', THEME_NAME ) . '</a></li>';
+
+    add_action('process_registration_form', 'registration_process_hook');
+
+    add_action('init', 'start_buffer_output');
+
+    function start_buffer_output() {
+        ob_start();
     }
-    if ( isset($echo) )
-        echo $args['before_output'] . $echo . $args['after_output'];
-}
 
-function customize_pagination($args) {
+    function insert_attachment($file_handler, $post_id, $setthumb = 'false') {
+        // check to make sure its a successful upload
+        if ($_FILES[$file_handler]['error'] !== UPLOAD_ERR_OK)
+            __return_false();
+        require_once(ABSPATH . "wp-admin" . '/includes/image.php');
+        require_once(ABSPATH . "wp-admin" . '/includes/file.php');
+        require_once(ABSPATH . "wp-admin" . '/includes/media.php');
+        $attach_id = media_handle_upload($file_handler, $post_id);
 
-    $args['previous_string'] = '«';
-    $args['next_string'] = '»';
+        if ($setthumb)
+            update_post_meta($post_id, '_thumbnail_id', $attach_id);
+        return $attach_id;
+    }
 
-    return $args;
-}
-add_filter('pagination_defaults', 'customize_pagination');
+    // Redirect khi đăng nhập
+    function my_login_redirect($redirect_to, $request, $user) {
+        //is there a user to check?
+        global $user;
+        if (isset($user->roles) && is_array($user->roles)) {
+            //check for admins
+            if (in_array('administrator', $user->roles)) {
+                // redirect them to the default place
+                return home_url();
+            } else {
+                return home_url();
+            }
+        } else {
+            return $redirect_to;
+        }
+    }
 
-function related_by_custom_post_type () {
+    add_filter('login_redirect', 'my_login_redirect', 10, 3);
 
-    global $post;
+    function redirect_login_page() {
+        $login_page = home_url('/dang-nhap.html/');
+        $page_viewed = basename($_SERVER['REQUEST_URI']);
+        if ($page_viewed == "wp-login.php" && $_SERVER['REQUEST_METHOD'] == 'GET') {
+            wp_redirect($login_page);
+            exit;
+        }
+    }
+
+    add_action('init', 'redirect_login_page');
+
+// Kết thúc Redirect khi đăng nhập
+// Kiểm tra lỗi đăng nhập
+    function login_failed() {
+        $login_page = home_url('/dang-nhap.html/');
+        wp_redirect($login_page . '?login=failed');
+        exit;
+    }
+
+    add_action('wp_login_failed', 'login_failed');
+
+    function verify_username_password($user, $username, $password) {
+        $login_page = home_url('/dang-nhap.html/');
+        if ($username == "" || $password == "") {
+            wp_redirect($login_page . "?login=empty");
+            exit;
+        }
+    }
+
+    add_filter('authenticate', 'verify_username_password', 1, 3);
     
-    $args = array(
-        'post_type' => $post->post_type,
-        'post_status' => 'publish',
-        'posts_per_page' => 8,
-        'orderby'           => 'date',
-        'order'             => 'DESC',
-        'post__not_in' => array ($post->ID),
-    );
-    $related_items = new WP_Query( $args );
-    
-    if ($related_items->have_posts()) :
-        echo '<ul class="list-unstyled" id="list-post">';
-        while ( $related_items->have_posts() ) : $related_items->the_post();
-        $count = get_post_meta(get_the_ID(), 'tanaka_post_views_count', true);
-        $count = empty($count) ? 0 : $count;
-        ?>
-            <li>
-                <a href="<?php the_permalink(); ?>">
-                    <?php if (has_post_thumbnail()) : ?>                                    
-                        <?php the_post_thumbnail(array(200, ''), array('class' => 'pull-left')); ?>
-                    <?php endif; ?>
-                    <ul class="list-inline list-unstyled dateview">
-                        <li><time class="meta-item"><i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo get_the_time('Y年m月d日', get_the_ID()); ?></time></li>
-                        <li class="pull-right"><?php echo $count?> <i class="fa fa-eye" aria-hidden="true"></i></li>
-                    </ul>
-                    <p><?php echo get_the_title()?></p>
-                </a>
-            </li>
-        <?php
-        endwhile;
-        echo '</ul>';
-    endif;
-    wp_reset_postdata();
-}
