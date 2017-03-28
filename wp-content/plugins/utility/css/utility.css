@@ -1,0 +1,112 @@
+
+/********************************************************
+******************** Tab Shortcode **********************
+*********************************************************/
+.tabs-menu {
+    height: 40px;
+    display: flex;
+    clear: both;
+    margin: 0;
+}
+.tabs-menu li {
+    height: 40px;
+    line-height: 40px;
+    margin: 0;
+    background-color: #ccccc4;
+    border-top: 1px solid #deded7;
+    border-right: 1px solid #fff;
+    cursor: pointer;
+}
+.tabs-menu li:first-child {
+    border-left: 1px solid #deded7;
+}
+.tabs-menu li:last-child {
+    border-right: 1px solid #deded7;
+}
+.tabs-menu li:before {
+    display: none !important;
+}
+.tabs-menu li.current {
+    background-color: #fff;
+    border-bottom: 1px solid #fff;
+    height: 41px;
+    overflow: hidden;
+}
+.tabs-menu li a {
+    padding: 10px;
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none; 
+}
+.tabs-menu .current a {
+    color: #9F886E;
+}
+.tab {
+    border: 1px solid #deded7;
+    background-color: #fff;
+    margin-bottom: 20px;
+    width: auto;
+}
+.tab-content {
+    width: 100%;
+    padding: 20px;
+    display: none;
+}
+#tab-1 {
+    display: block;
+}
+
+/********************************************************
+******************** Feature Shortcode ******************
+*********************************************************/
+ul.check li:before {
+    background: #fff;
+    border: 2px solid #888181;
+    content: "";
+    display: block;
+    height: 16px;
+    left: 0;
+    position: absolute;
+    top: 8px;
+    width: 16px;
+}
+ul.check li:after {
+    border-bottom: 2px solid #47aeb2;
+    border-left: 2px solid #47aeb2;
+    content: "";
+    display: block;
+    height: 6px;
+    left: 0.2em;
+    position: absolute;
+    top: 0.7em;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    width: 10px;
+}
+ul.check li {
+    margin-bottom: 10px;
+    padding-left: 2em;
+    position: relative;
+}
+
+.feature-list {
+    width: 100%;
+    margin: 2em .8em;
+}
+.feature-list > span {
+    margin-bottom: 8px;
+    border: 1px dashed #bdc8ca;
+    background: rgba(255,255,255,.45);
+    color: #887e7e;
+    padding: 4px 8px;
+}
+.feature-list > span:not(:first-child) {
+    margin-left: 8px;
+}
+.feature-list > span.active {
+    border: 1px solid #ed6103;
+    color: #db5a03;
+    background-color: #f7f3e8;
+    font-weight: bold;
+    border-radius: 4px;
+}
